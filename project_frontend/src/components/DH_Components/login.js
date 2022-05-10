@@ -31,7 +31,7 @@ export default class Login extends Component {
             token: res.data.token
           })
           localStorage.setItem("Authorization", res.data.token)
-          //window.location = "/displayCoSuper"
+          window.location = "/profile"
           alert('loging successfull');
         })
         .catch((err) => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import FileBase64 from 'react-file-base64';
 
 
 export default class Signup extends Component {
@@ -36,7 +37,7 @@ if(this.state.pwd === this.state.cpwd){
       axios.post(`http://localhost:8000/hotel/signup`,data)
       .then(res=>{
               alert("Hotel Registered")
-              window.location('/login');
+              window.location = '/login';
       }).catch((err)=>{
           alert(err)
       })
@@ -79,9 +80,9 @@ if(this.state.pwd === this.state.cpwd){
 
                             
                             <h1>Image</h1>
-                                 <input type="file" name="image"  placeholder="Image"
-                                  onChange={this.handleInputChange} value={this.setState.image} required/>
-
+                            <div>
+                                  <FileBase64 type="file" name="image" multiple={ false } onDone={({ base64 }) => this.setState({ image: base64 })}required/>
+                            </div>
 
                              <br/>                   
                              <center><button type="submit">

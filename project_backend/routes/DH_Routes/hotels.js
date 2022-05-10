@@ -25,8 +25,8 @@ const upload = multer({
 
 
 //sign up
-router.post("/signup", upload.single('image'), async (req, res) => {
-    console.log(request.file);
+router.post("/signup", async (req, res) => {
+
   
   try {
       const {
@@ -35,8 +35,9 @@ router.post("/signup", upload.single('image'), async (req, res) => {
         email,
         phone,
         pwd,
+        image
       } = req.body;
-      const image = request.file.filename;
+     
     
       let hotel1 = await hotel.findOne({ email });
     if (hotel1) {
@@ -59,7 +60,7 @@ router.post("/signup", upload.single('image'), async (req, res) => {
       res
         .status(201)
         .send({ status: "hotel Created", hotel: newhotel, token: token });
-        console.log(hotel1);
+
     } catch (error) {
       console.log(error.message);
       res.status(500).send({error: error.message});
@@ -85,26 +86,100 @@ router.post("/signup", upload.single('image'), async (req, res) => {
       })
 
 
-      router.post('/upload',(req,res)=>{
-        upload(req,res,(err)=>{
-          if(err){
-            console.log(err)
+    // //image upload test
+    //   router.post('/upload',(req,res)=>{
+    //     upload(req,res,(err)=>{
+    //       if(err){
+    //         console.log(err)
+    //       }
+    //       else{
+    //         const newImage = new images({
+    //           name: req.body.name,
+    //           image:{
+    //             data:req.file.filename,
+    //             contentType: 'image/png'
+    //           }
+    //         })
+    //         newImage
+    //         .save()
+    //         .then(()=>res.send('successfully uploaded'))
+    //         .catch((err)=>console.log(err));
+    //       }
+    //     })
+    //   })
+
+
+
+      //hotel profile
+      router.get("/profile", auth, async (req, res) => {
+        try {
+          res.status(201)
+          res.send({ success: "hotel fetched", hotel: req.htl});
+        } catch (error) {
+          res.status(500)
+          res.send({ status: "Error with /profile", error: error.message });
+        }
+      });
+
+
+
+      //upload images
+      router.post("/upload", auth, async (req, res) => {
+        try {
+        
+
+        if (!req.htl) {
+          throw new Error("No hotel");
+        }
+    
+        let image = {
+          image: req.body,
+        };
+    
+        await hotel.findOneAndUpdate(
+          { _id: req.htl._id },
+          { $push: { images: image } },
+          { new: true, upsert: true }
+        )
+        res.status(200).send({ status: "Image Added", images: image });
+        } catch (error) {
+          console.log(error.message);
+          res.status(500).send({error: error.message});
+        }
+      });
+
+
+
+      //add hotel room info
+      router.post("/add", auth, async (req, res) => {
+
+        try {
+          const user = await hotel.findById(req.htl._id)
+          
+          if (!user) {
+            throw new Error('There is no user')
           }
-          else{
-            const newImage = new images({
-              name: req.body.name,
-              image:{
-                data:req.file.filename,
-                contentType: 'image/png'
-              }
-            })
-            newImage
-            .save()
-            .then(()=>res.send('successfully uploaded'))
-            .catch((err)=>console.log(err));
-          }
-        })
-      })
+      
+      
+          let rooms = {
+            productId: productId,
+            productName: product.productName,
+            productPrice: product.productPrice,
+            coverImage: product.coverImage,
+          };
+      
+          await hotel.findOneAndUpdate(
+            { _id: req.Cus._id },
+            { $push: { rooms: rooms } },
+            { new: true, upsert: true }
+          )
+          res.status(200).send({ status: "Room details Added", room: rooms });
+        } catch (error) {
+          console.log(error.message);
+          res.status(500).send({ error: error.message });
+        }
+      });
+
 
 
   
