@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/hotelAuth");
 const multer = require('multer')
-const images = require("../../models/DH_Models/images");
+//const images = require("../../models/DH_Models/images");
 const { application, request } = require("express");
 
 
@@ -126,27 +126,120 @@ router.post("/signup", async (req, res) => {
       //upload images
       router.post("/upload", auth, async (req, res) => {
         try {
-        
+        const hotel1 = await hotel.findById(req.htl._id)
 
         if (!req.htl) {
           throw new Error("No hotel");
         }
-    
-        let image = {
-          image: req.body,
-        };
-    
+
         await hotel.findOneAndUpdate(
           { _id: req.htl._id },
-          { $push: { images: image } },
+          { $push: { images: req.body } },
           { new: true, upsert: true }
         )
-        res.status(200).send({ status: "Image Added", images: image });
+        res.status(200).send({ status: "Image Added" });
         } catch (error) {
           console.log(error.message);
           res.status(500).send({error: error.message});
         }
       });
+
+
+
+
+      //get photos
+  router.get("/displayImgs", auth, async (req, res) => {
+ 
+    try {
+      const hotl = await hotel.findById(req.htl._id)
+
+      if (!hotl) {
+        throw new Error('There is no hotel..!!!')
+      }
+ 
+      res.status(200).send({ success: true, images: hotl.images });
+    } catch (error) {
+      res.status(500).send({ status: "Error with retrieve", error: error.message });
+    }
+  });
+
+
+
+  
+      //get photos
+      router.get("/displayImg/:id", auth, async (req, res) => {
+        const id = req.params.id;
+        try {
+          const hotl = await hotel.findById(req.htl._id)
+    
+          if (!hotl) {
+            throw new Error('There is no hotel..!!!')
+          }
+          const images = hotl.images;
+
+
+          for(var i = 0; i < images.length; i++){
+            var im = images[i]
+            var x = im._id;
+
+     
+            if(id === x.toString()){
+              var img = im ;
+            }
+          }
+
+
+          // const gg = images.findById(id)
+     
+          res.status(200).send({ success: true, image: img });
+        } catch (error) {
+          res.status(500).send({ status: "Error with retrieve", error: error.message });
+        }
+      });
+
+
+
+
+        //remove Image 
+      router.delete("/deleteImg/:id",auth, async (req, res)=>{
+          
+        try{
+
+          const id = req.params.id;
+          const hotl = await hotel.findById(req.htl._id)
+          
+          const images = hotl.images;
+
+
+          for(var i = 0; i < images.length; i++){
+            var im = images[i]
+            var x = im._id;
+
+            console.log(id)
+            console.log(x.toString())
+            if(id === x.toString()){
+              hotel.findOneAndUpdate(
+                { _id: req.htl._id },
+                { $pull: { images: im } },
+                { new: true }
+              )
+              .then(images => console.log(images))
+              .catch(err => console.log(err));
+            
+            }
+          }
+          
+          res.status(200).send({ success: true, image: im });
+        } catch (error) {
+          res.status(500).send({ status: "Error with retrieve", error: error.message });
+        }
+        })
+
+
+
+
+
+
 
 
 

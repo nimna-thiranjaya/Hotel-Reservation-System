@@ -20,19 +20,21 @@ handleInputChange = (e) => {
 } 
 
 onSubmit = (e) =>{
-    const config = {
-        headers: {
-          Authorization: localStorage.getItem("Authorization"),
-        },
-      };
 
-  
+  const config = {
+    headers: {
+      Authorization: localStorage.getItem("Authorization"),
+    },
+  };
 
   e.preventDefault();
       const {image} = this.state;
       const data = {image};
       console.log(data)
 
+      if(data.image === undefined){
+          alert("image is undefined");
+      }else(
       axios.post(`http://localhost:8000/hotel/upload`,data,config)
       .then(res=>{
               alert("image uploaded")
@@ -40,7 +42,7 @@ onSubmit = (e) =>{
       }).catch((err)=>{
           alert(err)
       })
-
+      )
 }
 
 
@@ -50,16 +52,15 @@ onSubmit = (e) =>{
           <div>
               
               <form name="form" onSubmit={this.onSubmit}> 
-                             
-                        
+
                             <h1>Image</h1>
                             <div>
-                                  <FileBase64 type="file" name="image" multiple={ true } onDone={({ base64 }) => this.setState({ image: base64 })}required/>
+                                  <FileBase64 type="file" name="image" multiple={ false } onDone={({ base64 }) => this.setState({ image: base64 })}required/>
                             </div>
 
                              <br/>                   
                              <center><button type="submit">
-                                     Register
+                                     Add Image
                                  </button></center>
                              
               </form>     
