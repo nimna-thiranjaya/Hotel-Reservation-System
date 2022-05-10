@@ -28,12 +28,14 @@ mongoose.connect(URL, {
     //useFindAndModify: false
 });
 
+const travelerRouter = require("./routes/NT_Routes/traveler")
+
 const connection = mongoose.connection;
 connection.once("open", () => {
 console.log("Mongodb connection success!!!");
-
 })
 
+app.use("/traveler",travelerRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`)
