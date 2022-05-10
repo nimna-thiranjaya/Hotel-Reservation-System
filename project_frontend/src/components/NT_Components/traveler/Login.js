@@ -31,7 +31,7 @@ export default class Login extends Component {
           })
           localStorage.setItem("Authorization", res.data.token)
           alert("loging complete");
-          window.location = "/";
+          window.location = "/home";
           
         })
         .catch((err) => {
@@ -48,7 +48,8 @@ export default class Login extends Component {
           email : <input type="text" name='email' onChange={e => this.setState({ email: e.target.value })}/> <br/><br/>
           password : <input type="text" name='password' onChange={e => this.setState({ password: e.target.value })}/> <br/><br/>
           <input type="submit" value="Login"/>
-        </form>
+        </form><br/>
+        <a href='/register'><button type="button" class="btn btn-primary">Sign Up</button></a>
     </div>
     )
   }

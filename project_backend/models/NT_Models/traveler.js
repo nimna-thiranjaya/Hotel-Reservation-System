@@ -68,6 +68,12 @@ const travelerSchema = new mongoose.Schema({
         type: String,
     },
 
+    role: {
+        type: String,
+        required : true,
+        default : "traveler"
+    },
+
     tokens: [{
         token: {
         type: String,

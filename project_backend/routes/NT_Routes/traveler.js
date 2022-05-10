@@ -67,7 +67,7 @@ router.get("/profile", auth, async (req, res) => {
   });
 
 router.put('/update', auth, async (req, res) => {
- 
+    
     const {fname, lname, email, nic, pno, dob, nationality, gender, country, imageUrl} = req.body
     try {
       const updateValus={
@@ -97,6 +97,22 @@ router.put('/update', auth, async (req, res) => {
       console.log(error)
     }
   })
+
+  // delete admin
+  router.delete("/delete", auth, async (req, res) => {
+    try {
+      const traveler1 = await traveler.findById(req.traveler1.id);
+      if (!traveler1) {
+        throw new Error("There is no Admin to delete");
+      }
+      const deleteProfile = await traveler.findByIdAndDelete(req.traveler1.id);
+      res.status(200).send({ status: "user deleted", traveler1 : deleteProfile });
+    } catch (error) {
+      res
+        .status(500)
+        .send({ status: "error with id", error: error.message });
+    }
+  });
 
 
 
