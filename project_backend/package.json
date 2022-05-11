@@ -11,6 +11,7 @@
   "author": "IT20128418, IT20167028, IT20136574",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "concurrently": "^7.1.0",
     "config": "^3.3.7",

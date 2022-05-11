@@ -34,6 +34,15 @@ console.log("Mongodb connection success!!!");
 
 })
 
+// @import routes
+const bookingRouter = require("./routes/RS_Routes/booking");
+
+
+
+// rotues
+app.use("/booking", bookingRouter)
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`)

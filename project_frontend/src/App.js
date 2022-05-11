@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
-import Sample from './components/DH_Components/sample';
+import reservation from './components/RS_Components/reservation';
 
 
 export default class App extends Component {
@@ -11,10 +11,19 @@ export default class App extends Component {
     return (
         <Router>
             <Switch>
-              <Route path ='/' component={Sample} />
+              
+              <Route path ='resrv' Component = {reservation}/>
 
             </Switch>
         </Router>
     )
   }
 }
+
+
+
+
+
+
+
+
