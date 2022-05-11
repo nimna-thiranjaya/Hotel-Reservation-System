@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import CusHome from './components/RS_Components/CusHome';
 
-import reservation from './components/RS_Components/reservation';
+
 
 
 export default class App extends Component {
@@ -12,8 +13,8 @@ export default class App extends Component {
         <Router>
             <Switch>
               
-              <Route path ='resrv' Component = {reservation}/>
-
+              <Route path = "/"  component = {CusHome}/>
+              
             </Switch>
         </Router>
     )
