@@ -206,17 +206,13 @@ router.post("/signup", async (req, res) => {
         try{
 
           const id = req.params.id;
-          const hotl = await hotel.findById(req.htl._id)
-          
+          const hotl = await hotel.findById(req.htl._id);
           const images = hotl.images;
 
-
           for(var i = 0; i < images.length; i++){
-            var im = images[i]
+            var im = images[i];
             var x = im._id;
 
-            console.log(id)
-            console.log(x.toString())
             if(id === x.toString()){
               hotel.findOneAndUpdate(
                 { _id: req.htl._id },
