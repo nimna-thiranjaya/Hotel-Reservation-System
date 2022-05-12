@@ -18,6 +18,13 @@ const hotelSchema = new mongoose.Schema({
     trim: true,
   },
 
+  address: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+
+
 
   phone: {
     type: String,
@@ -65,6 +72,30 @@ const hotelSchema = new mongoose.Schema({
     type: String,
     default: "Hotel",
   },
+
+  rooms: [{
+
+    type: {
+      type: String,
+     //require: true
+    },
+    size: {
+      type: String,
+      //required: true
+    },
+    pricePerNight: {
+      type: String,
+      //required: true
+    },
+    facilities: {
+      type: String,
+      //required: false
+    },
+    details: {
+      type: String,
+      //required: false
+    }
+  }],
 
 
   tokens: [

@@ -9,6 +9,7 @@ export default class Signup extends Component {
     this.state={
       hname:"",
       details:"",
+      address:"",
       email:"",
       phone:"",
       pwd:"",
@@ -30,8 +31,8 @@ onSubmit = (e) =>{
   
 if(this.state.pwd === this.state.cpwd){
   e.preventDefault();
-      const {hname,details,email,phone,pwd,image} = this.state;
-      const data = {hname,details,email,phone,pwd,image};
+      const {hname,details,address,email,phone,pwd,image} = this.state;
+      const data = {hname,details,address,email,phone,pwd,image};
       console.log(data)
 
       axios.post(`http://localhost:8000/hotel/signup`,data)
@@ -61,6 +62,10 @@ if(this.state.pwd === this.state.cpwd){
                             <h1>Hotel Details</h1>
                                  <input type="text" name="details"  placeholder="Details"
                                   onChange={this.handleInputChange} value={this.setState.details} required/>
+
+                            <h1>Hotel Address</h1>
+                                 <input type="text" name="address"  placeholder="address"
+                                  onChange={this.handleInputChange} value={this.setState.address} required/>
 
                             <h1>Email Address</h1>
                                  <input type="text" name="email"  placeholder="Email Address"

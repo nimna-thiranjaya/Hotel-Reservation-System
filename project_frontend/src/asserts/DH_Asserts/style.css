@@ -1,0 +1,25 @@
+.wrapper{
+    max-height: 475px;
+    padding-left: 50px;
+    overflow-x: auto;
+    border: 1px black;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 20px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background: rgb(11, 126, 219); 
+    border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar-thumb:hover {
+    background: #0448b8; 
+  }

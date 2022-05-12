@@ -5,23 +5,6 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/hotelAuth");
-const multer = require('multer')
-//const images = require("../../models/DH_Models/images");
-const { application, request } = require("express");
-
-
-
-const Storage = multer.diskStorage({
-  destination:'uploads',
-  filename:(req,file,cb) =>{
-    cb(null, file.originalname);
-  }
-});
-
-const upload = multer({
-  storage:Storage
-});
-
 
 
 //sign up
@@ -32,6 +15,7 @@ router.post("/signup", async (req, res) => {
       const {
         hname,
         details,
+        address,
         email,
         phone,
         pwd,
@@ -48,6 +32,7 @@ router.post("/signup", async (req, res) => {
       hotel1 = {
         hname: hname,
         details: details,
+        address: address,
         phone: phone,
         email: email,
         pwd: pwd,
@@ -68,6 +53,7 @@ router.post("/signup", async (req, res) => {
   });
 
 
+
   
     //login
 
@@ -75,6 +61,9 @@ router.post("/signup", async (req, res) => {
         try {
           const {email, pwd} = req.body
           const htl = await hotel.findByCredentials(email, pwd)
+          if(!(htl.role === "Hotel")){
+              throw new Error("You must be a hotel owner!!");
+          }
           const token = await htl.generateAuthToken()
           res.status(200).send({token: token, hotel: htl})
     
@@ -86,27 +75,40 @@ router.post("/signup", async (req, res) => {
       })
 
 
-    // //image upload test
-    //   router.post('/upload',(req,res)=>{
-    //     upload(req,res,(err)=>{
-    //       if(err){
-    //         console.log(err)
-    //       }
-    //       else{
-    //         const newImage = new images({
-    //           name: req.body.name,
-    //           image:{
-    //             data:req.file.filename,
-    //             contentType: 'image/png'
-    //           }
-    //         })
-    //         newImage
-    //         .save()
-    //         .then(()=>res.send('successfully uploaded'))
-    //         .catch((err)=>console.log(err));
-    //       }
-    //     })
-    //   })
+
+
+      //update account details
+      router.put('/update', auth, async (req, res) => {
+    
+        const {
+          hname,
+          details,
+          address,
+          email,
+          phone,
+          image
+        } = req.body;
+       
+        try {
+          updateValus = {
+            hname: hname,
+            details: details,
+            address: address,
+            phone: phone,
+            email: email,
+            image: image
+          };
+
+
+      
+          const hotelUpdate = await hotel.findByIdAndUpdate(req.htl._id,updateValus)
+       
+          res.status(200).send({status: 'hotel Profile Updated', hotel1: hotelUpdate})
+        } catch (error) {
+          res.status(500).send({error: error.message})
+          console.log(error)
+        }
+      })
 
 
 
@@ -240,29 +242,38 @@ router.post("/signup", async (req, res) => {
 
 
       //add hotel room info
-      router.post("/add", auth, async (req, res) => {
+      router.post("/addRoom", auth, async (req, res) => {
 
         try {
-          const user = await hotel.findById(req.htl._id)
+          const htl = await hotel.findById(req.htl._id)
           
-          if (!user) {
+          if (!htl) {
             throw new Error('There is no user')
           }
+
+          const {
+            type,
+            size,
+            pricePerNight,
+            facilities,
+            details
+          } = req.body;
       
       
           let rooms = {
-            productId: productId,
-            productName: product.productName,
-            productPrice: product.productPrice,
-            coverImage: product.coverImage,
+            type: type,
+            size: size,
+            pricePerNight: pricePerNight,
+            facilities: facilities,
+            details: details
           };
       
           await hotel.findOneAndUpdate(
-            { _id: req.Cus._id },
+            { _id: req.htl._id },
             { $push: { rooms: rooms } },
             { new: true, upsert: true }
           )
-          res.status(200).send({ status: "Room details Added", room: rooms });
+          res.status(200).send({ status: "Room details Added", rooms: rooms });
         } catch (error) {
           console.log(error.message);
           res.status(500).send({ error: error.message });

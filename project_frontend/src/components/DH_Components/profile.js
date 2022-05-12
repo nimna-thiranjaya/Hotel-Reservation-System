@@ -36,7 +36,7 @@ componentDidMount(){
 
 
     render() {
-        const {hname,details, phone, email, image } = this.state.hotel;
+        const {hname,details,address, phone, email, image } = this.state.hotel;
 
         return (
              
@@ -52,12 +52,15 @@ componentDidMount(){
                         <img src={image} width="170" height="170"/>
                         <p>{hname}</p>
                         <p>{details}</p>
+                        <p>{address}</p>
                         <p>{phone}</p>
                         <p>{email}</p>
 
                         <button type="submit" onClick={()=>this.request()} >Request</button>
 
-
+                        <a href = "/update">
+                        <button type="submit">Update</button>
+                        </a>
 
                     </div>
                     <br/><br/><br/><br/><br/><br/><br/>
