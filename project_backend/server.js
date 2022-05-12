@@ -29,6 +29,7 @@ mongoose.connect(URL, {
 });
 
 const travelerRouter = require("./routes/NT_Routes/traveler")
+const paymentRouter = require("./routes/NT_Routes/paymentConfirmation")
 
 const connection = mongoose.connection;
 connection.once("open", () => {
@@ -36,6 +37,7 @@ console.log("Mongodb connection success!!!");
 })
 
 app.use("/traveler",travelerRouter);
+app.use("/payment",paymentRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`)

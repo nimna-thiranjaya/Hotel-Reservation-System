@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const nodemailer = require('nodemailer');
 const auth = require("../../middleware/traveler_auth")
 const traveler = require("../../models/NT_Models/traveler")
 
@@ -114,7 +115,6 @@ router.put('/update', auth, async (req, res) => {
     }
   });
 
-
-
+ 
 
 module.exports = router;

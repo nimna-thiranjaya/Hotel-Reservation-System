@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import Header from '../../Layouts/Header'
+
 export default class Profile extends Component {
     constructor(props){
         super(props)
@@ -83,24 +85,147 @@ export default class Profile extends Component {
     }
   render() {
     return (
+        // <div>
+        //     <h2>Traveler Profile</h2>
+        //     <div className='container'>
+        //         <img src={this.state.imageUrl} alt="Profile_Picture" width="170" height="170"/>  <br/><br/>
+        //         <p>Fname : {this.state.fname}</p>
+        //         <p>Lname : {this.state.lname}</p>
+        //         <p>Email : {this.state.email}</p>
+        //         <p>NIC : {this.state.nic}</p>
+        //         <p>phone No : {this.state.pno}</p>
+        //         <p>DOB : {this.state.dob}</p>
+        //         <p>Nationality : {this.state.nationality}</p>
+        //         <p>Gender : {this.state.gender}</p>
+        //         <p>Country : {this.state.country}</p><br/>
+        //     </div>
+        //         <button type="button" class="btn btn-primary" onClick={this.onUpdate}>Update Profile</button> &nbsp;
+        //         <button type="button" class="btn btn-primary" onClick={this.adminLogout} >Log Out</button> &nbsp;
+        //         <button type="button" class="btn btn-danger" onClick={this.onDelete}>Delete Profile</button>
+        // </div>
+
         <div>
-            <h2>Traveler Profile</h2>
-            <div className='container'>
-                <img src={this.state.imageUrl} alt="Profile_Picture" width="170" height="170"/>  <br/><br/>
-                <p>Fname : {this.state.fname}</p>
-                <p>Lname : {this.state.lname}</p>
-                <p>Email : {this.state.email}</p>
-                <p>NIC : {this.state.nic}</p>
-                <p>phone No : {this.state.pno}</p>
-                <p>DOB : {this.state.dob}</p>
-                <p>Nationality : {this.state.nationality}</p>
-                <p>Gender : {this.state.gender}</p>
-                <p>Country : {this.state.country}</p><br/>
+            <Header/>
+            <div class="container mt-4">
+            <div class="main-body">
+    
+ 
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+         
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                  <img src={this.state.imageUrl} alt="Profile_Picture" class="rounded-circle" width="150"/>
+                   
+                    <div class="mt-3">
+                      <h4>{this.state.fname} {this.state.lname}</h4>
+                      <p class="text-secondary mb-1">
+                      {this.state.email}
+                      </p>
+                      <p class="text-muted font-size-sm">{this.state.pno}</p>
+                      <button class="btn btn-primary" onClick={this.adminLogout} style={{width: 50+"%"}}>Log Out</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-                <button type="button" class="btn btn-primary" onClick={this.onUpdate}>Update Profile</button> &nbsp;
-                <button type="button" class="btn btn-primary" onClick={this.adminLogout} >Log Out</button> &nbsp;
-                <button type="button" class="btn btn-danger" onClick={this.onDelete}>Delete Profile</button>
-        </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    {this.state.fname} {this.state.lname}
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">NIC</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    {this.state.nic}
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {this.state.email}
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">phone No</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {this.state.pno}
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Date of Birth</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {this.state.dob}
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Gender</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {this.state.gender}
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Country</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {this.state.country}
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Nationality</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {this.state.nationality}
+                    </div>
+                  </div>
+                  <hr/>
+                  <center>
+                  <div class="row">
+                    <div class="col-sm-12">
+                    <button class="btn btn-secondary" style={{width: 20+"%"}} onClick={this.onUpdate}>Back</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="btn btn-primary" style={{width: 20+"%"}} onClick={this.onUpdate}>Update Profile</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-danger" onClick={this.onDelete} style={{width: 20+"%"}}>Delete Profile</button>
+                    </div>
+                  </div></center>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
     )
   }
 }

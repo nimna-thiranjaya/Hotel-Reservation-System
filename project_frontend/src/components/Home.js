@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Header from './Layouts/Header'
+
 
 export default class Home extends Component {
     onRedirect(){
@@ -7,9 +9,11 @@ export default class Home extends Component {
 
   render() {
     return (
-   <div className='container'>
-       <h2>Home Page</h2>
-       <button type="button" class="btn btn-primary mt-3" onClick={this.onRedirect}>Profile</button>
+   <div>
+      <Header/>
+      <div className='container'>
+
+      </div>
    </div>
     )
   }
