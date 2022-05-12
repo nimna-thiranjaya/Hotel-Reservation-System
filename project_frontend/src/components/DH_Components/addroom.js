@@ -88,7 +88,6 @@ onSubmit = (e) =>{
                                  <input type="text" name="details"  placeholder="details"
                                   onChange={this.handleInputChange} value={this.setState.details} required/>
 
-
                              <br/>                   
                              <center><button type="submit">
                                      Add
