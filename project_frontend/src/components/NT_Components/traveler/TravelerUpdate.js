@@ -23,15 +23,15 @@ export default class TravelerUpdate extends Component {
     }
 
     onFileChange(e) {
-        let files = e.target.files;
-        let fileReader = new FileReader();
-        fileReader.readAsDataURL(files[0]);
- 
-        fileReader.onload = (event) => {
-            this.setState({
-                imageUrl: event.target.result,
-            })
+            let files = e.target.files;
+            let fileReader = new FileReader();
+            fileReader.readAsDataURL(files[0]);
+            fileReader.onload = (event) => {
+                this.setState({
+                    imageUrl: event.target.result,
+                })
         }
+        
     }
 
     handleInputChange = (e)=>{
@@ -62,6 +62,7 @@ export default class TravelerUpdate extends Component {
                     nationality : res.data.traveler1.nationality,
                     gender : res.data.traveler1.gender,
                     country : res.data.traveler1.country,
+                    imageUrl:res.data.traveler1.imageUrl
                 })
             }
         })
@@ -136,22 +137,126 @@ export default class TravelerUpdate extends Component {
 
   render() {
     return (
+        // <div>
+        //     <h3>Traveler Registration</h3>
+        //     <form className='container'>
+        //         fname : <input type="text" name="fname" onChange={this.handleInputChange} value={this.state.fname}/><br/><br/>
+        //         lname : <input type="text" name="lname" onChange={this.handleInputChange} value={this.state.lname}/><br/><br/>
+        //         email : <input type="text" name="email" onChange={this.handleInputChange} value={this.state.email} readOnly/><br/><br/>
+        //         nic : <input type="text" name="nic" onChange={this.handleInputChange} value={this.state.nic}/><br/><br/>
+        //         phone no : <input type="text" name="pno" onChange={this.handleInputChange} value={this.state.pno}/><br/><br/>
+        //         dob : <input type="text" name="dob" onChange={this.handleInputChange} value={this.state.dob}/><br/><br/>
+        //         nationality : <input type="text" name="nationality" onChange={this.handleInputChange} value={this.state.nationality}/><br/><br/>
+        //         gender : <input type="text" name="gender" onChange={this.handleInputChange} value={this.state.gender}/><br/><br/>
+        //         country : <input type="text" name="country" onChange={this.handleInputChange} value={this.state.country}/><br/><br/>
+        //         imageUrl : <input type="file" name="imageUrl"  onChange={this.onFileChange}/><br/><br/>
+        //         <input type="button" onClick={this.onBack} value="Back"/> &nbsp;
+        //         <input type="submit" onClick={this.onSubmit} value="submit"/>
+        //     </form>
+        // </div>
+
         <div>
-            <h3>Traveler Registration</h3>
-            <form className='container'>
-                fname : <input type="text" name="fname" onChange={this.handleInputChange} value={this.state.fname}/><br/><br/>
-                lname : <input type="text" name="lname" onChange={this.handleInputChange} value={this.state.lname}/><br/><br/>
-                email : <input type="text" name="email" onChange={this.handleInputChange} value={this.state.email} readOnly/><br/><br/>
-                nic : <input type="text" name="nic" onChange={this.handleInputChange} value={this.state.nic}/><br/><br/>
-                phone no : <input type="text" name="pno" onChange={this.handleInputChange} value={this.state.pno}/><br/><br/>
-                dob : <input type="text" name="dob" onChange={this.handleInputChange} value={this.state.dob}/><br/><br/>
-                nationality : <input type="text" name="nationality" onChange={this.handleInputChange} value={this.state.nationality}/><br/><br/>
-                gender : <input type="text" name="gender" onChange={this.handleInputChange} value={this.state.gender}/><br/><br/>
-                country : <input type="text" name="country" onChange={this.handleInputChange} value={this.state.country}/><br/><br/>
-                imageUrl : <input type="file" name="imageUrl"  onChange={this.onFileChange}/><br/><br/>
-                <input type="button" onClick={this.onBack} value="Back"/> &nbsp;
-                <input type="submit" onClick={this.onSubmit} value="submit"/>
-            </form>
+        <div>
+        <div class="container">
+                <div class=" text-center mt-5">
+                    <h3 >Traveler Registration</h3>
+                </div>
+            <div className="row ">
+            <div className="col-lg-7 mx-auto">
+                <div className="cardN mt-2 mx-auto p-4">
+                    <div class="cardN-body">
+            
+                    <div className = "container">
+                    <form>
+                    <div className="controls">
+
+                        <div className="row">
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                    <label for="form_name">Firstname :</label>
+                                    <input  type="text" className="form-control" required="required" name="fname" onChange={this.handleInputChange} value={this.state.fname}/>
+                                    
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                    <label >Lastname :</label>
+                                    <input  type="text" className="form-control" required="required" name="lname" onChange={this.handleInputChange} value={this.state.lname} />
+                                </div>
+                            </div>
+                            <div className="col-md-8 mx-auto mt-2">
+                                <div className="form-group">
+                                    <label className='mx-auto'>Email :</label>
+                                    <input  type="text" className="form-control"  name="email" onChange={this.handleInputChange} value={this.state.email} readOnly/>
+                                </div>
+                            </div>
+                            <div className="col-md-6 mt-2">
+                                <div className="form-group">
+                                    <label className='mx-auto'>NIC :</label>
+                                    <input  type="text" className="form-control"  required="required"  name="nic" onChange={this.handleInputChange} value={this.state.nic}/>
+                                </div>
+                            </div>
+                            <div className="col-md-6 mt-2">
+                                <div className="form-group">
+                                    <label className='mx-auto'>Gender :</label>
+                                    <div className="form-group">
+                                <select className="form-control" required="required" name="gender" onChange={this.handleInputChange} value={this.state.gender}>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                                   
+                                </div>
+                            </div>
+                            <div className="col-md-6 mt-2">
+                                <div className="form-group">
+                                    <label for="form_name">Phone No :</label>
+                                    <input  type="text" className="form-control" required="required" name="pno" onChange={this.handleInputChange} value={this.state.pno} />
+                                </div>
+                            </div>
+                            <div className="col-md-6 mt-2">
+                                <div className="form-group">
+                                    <label >Date Of Birth :</label>
+                                    <input  type="date" className="form-control"  required="required" name="dob" onChange={this.handleInputChange} value={this.state.dob} />
+                                </div>
+                            </div>
+                            <div className="col-md-6 mt-2">
+                                <div className="form-group">
+                                    <label for="form_name">Country :</label>
+                                    <input  type="text" className="form-control" required="required" name="country" onChange={this.handleInputChange} value={this.state.country} />
+                                </div>
+                            </div>
+                            <div className="col-md-6 mt-2">
+                                <div className="form-group">
+                                    <label >Nationality :</label>
+                                    <input  type="text"  className="form-control" required="required" name="nationality" onChange={this.handleInputChange} value={this.state.nationality} />
+                                </div>
+                            </div>
+                            <center>
+                            <div class="col-md-8 mx-auto mt-3">
+                                <label>Profile Image :</label> &nbsp;
+                                <input type="file" class="form-control form-control-sm" name="imageUrl"  onChange={this.onFileChange} />
+                                {/* <FileBase64 class="form-control form-control-sm" id="formFileSm" type="file" multiple={ false } onDone={({base64}) => setimageUrl(base64)}/> */}
+                            </div>
+                            </center>
+                            <center>
+                            <div className='mt-4'>
+                                <input class='btn btn-secondary' type="button" value="Back" style={{width: 20+"%"}} onClick={this.onBack}/> &nbsp;&nbsp;&nbsp;
+                                <input class='btn btn-primary' type="button" value="Update"  style={{width: 20+"%"}} onClick={this.onSubmit}/> 
+                            </div>
+                        </center>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+             </div>
+        </div>
+        </div>
+    </div>
+
         </div>
     )
   }

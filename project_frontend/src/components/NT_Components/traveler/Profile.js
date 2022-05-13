@@ -65,6 +65,10 @@ export default class Profile extends Component {
         window.location.href="/update"
     }
 
+    onBack(){
+        window.location.href="/home"
+    }
+
     async onDelete(){
         const config = {
             headers: {
@@ -132,7 +136,7 @@ export default class Profile extends Component {
                       {this.state.email}
                       </p>
                       <p class="text-muted font-size-sm">{this.state.pno}</p>
-                      <button class="btn btn-primary" onClick={this.adminLogout} style={{width: 50+"%"}}>Log Out</button>
+                      <button class="btn btn-primary" onClick={this.adminLogout} style={{width: 80+"%"}}>Log Out</button>
                     </div>
                   </div>
                 </div>
@@ -216,7 +220,7 @@ export default class Profile extends Component {
                   <center>
                   <div class="row">
                     <div class="col-sm-12">
-                    <button class="btn btn-secondary" style={{width: 20+"%"}} onClick={this.onUpdate}>Back</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="btn btn-primary" style={{width: 20+"%"}} onClick={this.onUpdate}>Update Profile</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-danger" onClick={this.onDelete} style={{width: 20+"%"}}>Delete Profile</button>
+                    <button class="btn btn-secondary" style={{width: 20+"%"}} onClick={this.onBack}>Back</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="btn btn-primary" style={{width: 20+"%"}} onClick={this.onUpdate}>Update Profile</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-danger" onClick={this.onDelete} style={{width: 20+"%"}}>Delete Profile</button>
                     </div>
                   </div></center>
                 </div>

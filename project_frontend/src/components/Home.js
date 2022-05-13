@@ -11,8 +11,8 @@ export default class Home extends Component {
     return (
    <div>
       <Header/>
-      <div className='container'>
-
+      <div className='content'>
+      <a href='/payment'><button class="btn btn-secondary" style={{width: 100+"%"}}>Check Out</button></a>
       </div>
    </div>
     )

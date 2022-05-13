@@ -10,7 +10,7 @@ router.post('/sendemail',(req,res)=>{
       service: 'gmail',
       auth: {
         user: 'nimnathiranjaya523@gmail.com',
-        pass: 'sithupraba@523'
+        pass: '**********'
       }
   });
 
