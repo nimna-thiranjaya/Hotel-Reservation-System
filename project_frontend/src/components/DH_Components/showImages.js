@@ -3,8 +3,8 @@ import { Component } from 'react';
 //import { useParams } from 'react-router-dom';
 import axios from "axios";
 //import Images from './images';
-import Button from '@mui/material/Button'
-import DeleteIcon from '@mui/icons-material/Delete';
+// import Button from '@mui/material/Button'
+// import DeleteIcon from '@mui/icons-material/Delete';
 
 
 export default class Show extends Component {
@@ -15,6 +15,26 @@ export default class Show extends Component {
            images:[]
       }
   }
+
+  onDelete = (id) =>{
+
+    const config = {
+        headers: {
+          Authorization: localStorage.getItem("Authorization"),
+        },
+      };
+
+    if (window.confirm('Are you sure you wish to remove this image?')) {
+        axios.delete(`http://localhost:8000/hotel/deleteImg/${id}`,config).then((res)=>{
+                //alert("Delete successful");
+                alert('Removed successfully');
+                window.location.reload();
+                 
+        })
+    }
+    
+ }
+
 
 
 
@@ -56,12 +76,12 @@ componentDidMount(){
                     {this.state.images.map((images)=>(
                         <div className="col-lg-3 col-md-3 col-sm-2">
                             <div style={{width: 230, height: 230, paddingBottom: 15}}>
-                              <div class="cardwl">
+                              <div class="cardwl" >
                                 <div>
-                                    <div className="card" style={{width: "18rem",marginTop: 15,marginLeft:"1px"}}>
-                                        <img src={images.image} style={{height: "10rem",borderRadius:"5px"}}/>
+                                    <div className="card" style={{width: "18rem",marginTop: 15}}>
+                                        <img src={images.image} alt="" style={{height: "10rem",borderRadius:"5px"}}/>
                                             
-                                        <button class="button1"><i class="fa fa-trash"></i></button>
+                                        <button  onClick={()=>this.onDelete(images._id)} class="button1"><i class="fa fa-trash"></i></button>
                                             
                                     </div>
                                 </div>

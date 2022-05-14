@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from 'react';
 import axios from "axios";
-
+import image from "../../asserts/DH_Asserts/png-transparentl.png"
 
 
 export default class Rooms extends Component {
@@ -62,8 +62,8 @@ componentDidMount(){
     render() {
         return (
          
-                <div>
-                    <div>
+                <div className='container'>
+                    {/* <div>
                         <center><h4>
                         Registerd Group Members
                         </h4></center>
@@ -102,7 +102,76 @@ componentDidMount(){
                                    
                                 ))}
                             </tbody>
-                        </table>
+                        </table> */}
+
+
+
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+    <th>No</th>
+      <th>Room Type</th>
+      <th>Size</th>
+      <th>Details</th>
+      <th>Facilities</th>
+      <th>Price Per Night</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {this.state.rooms.map((rooms,index)=>(
+    <tr>
+    <td>
+        <div class="d-flex align-items-center">
+
+          <div class="ms-3">
+            <p class="fw-bold mb-1">1</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src={image}
+              alt=""
+              style={{width: "45px", height: "45px"}}
+              class="rounded-circle"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{rooms.type}</p>
+           
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{rooms.size}</p>
+        
+      </td>
+      <td>
+      <p class="fw-normal mb-1">{rooms.details}</p>
+      </td>
+      <td>{rooms.facilities}</td>
+      <td>
+      <p class="fw-bold mb-1">{rooms.pricePerNight}</p>
+      </td>
+      <td>
+        {/* <button type="button" class="btn btn-link btn-sm btn-rounded">
+          Edit
+        </button> */}
+         <ul class="list-inline m-0">
+
+                                                <li class="list-inline-item">
+                                                    <a  href={`/updateRoom/${rooms._id}`}><button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-danger btn-sm rounded-0" onClick={()=>this.onDelete(rooms._id)} type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                </li>
+                                            </ul>
+      </td>
+    </tr>
+    ))}
+  </tbody>
+</table>
                     </div>
 
 

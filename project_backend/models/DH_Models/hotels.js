@@ -94,7 +94,13 @@ const hotelSchema = new mongoose.Schema({
     details: {
       type: String,
       //required: false
+    },
+    hname: {
+      type: String,
+      //required: false
     }
+
+
   }],
 
 

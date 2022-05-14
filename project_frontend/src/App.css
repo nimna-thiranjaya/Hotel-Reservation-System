@@ -56,7 +56,7 @@
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
 }
-/* .wrapper{
+.wrapper{
   background-color: #C2DCF5;
   height: 280px;
   padding-left: 50px;
@@ -81,5 +81,5 @@
 
 .wrapper::-webkit-scrollbar-thumb:hover {
   background: #0448b8; 
-} */
+}
 

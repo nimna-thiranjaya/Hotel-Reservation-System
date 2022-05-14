@@ -265,7 +265,8 @@ router.post("/signup", async (req, res) => {
             size: size,
             pricePerNight: pricePerNight,
             facilities: facilities,
-            details: details
+            details: details,
+            hname: htl.hname,
           };
       
           await hotel.findOneAndUpdate(
@@ -363,7 +364,8 @@ router.post("/signup", async (req, res) => {
               size: size,
               pricePerNight: pricePerNight,
               facilities: facilities,
-              details: details
+              details: details,
+              hname: htl.hname
             };
   
             await hotel.findByIdAndUpdate(
