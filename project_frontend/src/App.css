@@ -57,11 +57,9 @@
   -o-transform: scale(1.1);
 }
 .wrapper{
-  background-color: #C2DCF5;
   height: 280px;
-  padding-left: 50px;
-  overflow-x: auto;
-  border: 1px black;
+  overflow-y: auto;
+
 }
 
 .wrapper::-webkit-scrollbar {

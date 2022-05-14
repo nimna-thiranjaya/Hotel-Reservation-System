@@ -62,47 +62,7 @@ componentDidMount(){
     render() {
         return (
          
-                <div className='container'>
-                    {/* <div>
-                        <center><h4>
-                        Registerd Group Members
-                        </h4></center>
-                            
-                           
-                        </div>
-                        <table className="table table-hover" style={{marginTop:'40px', background: "#F0FFFF" }} >
-                            <thead>
-                                <tr bgcolor="#D5D6EA">
-                                <th scope="col">No</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">size</th>
-                                <th scope="col">Price Per Night</th>
-                                <th scope="col">Facilities</th>
-                                <th scope="col">details</th>
-
-                                </tr>
-                            </thead>  
-                            <tbody>
-                                {this.state.rooms.map((rooms,index)=>(
-                                   <tr>
-                                        <th scope = "row">{index +1}</th>
-                                        <td>{rooms.type}</td>
-                                        <td>{rooms.size}</td>
-                                        <td>{rooms.pricePerNight}</td>
-                                        <td>{rooms.facilities}</td>
-                                        <td>{rooms.details}</td>
-                                        <td>
- 
-                                        <button type="submit" onClick={()=>this.onDelete(rooms._id)} >Remove</button>
-                                        <a href={`/updateRoom/${rooms._id}`}>
-                                        <button type="submit"  >Update</button>
-                                        </a>
-                                        </td>
-                                    </tr>
-                                   
-                                ))}
-                            </tbody>
-                        </table> */}
+                <div className="card mx-4 mx-md-5 shadow-5-strong" style={{marginTop: "30px", background: "hsla(0, 0%, 100%, 0.8)",backdropFilter:` blur(20px)`, boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
 
 
 
@@ -125,7 +85,7 @@ componentDidMount(){
         <div class="d-flex align-items-center">
 
           <div class="ms-3">
-            <p class="fw-bold mb-1">1</p>
+            <p class="fw-bold mb-1">{index+1}</p>
           </div>
         </div>
       </td>
@@ -154,7 +114,7 @@ componentDidMount(){
       <td>
       <p class="fw-bold mb-1">{rooms.pricePerNight}</p>
       </td>
-      <td>
+      <td style={{width:"100px"}}>
         {/* <button type="button" class="btn btn-link btn-sm btn-rounded">
           Edit
         </button> */}
@@ -164,7 +124,7 @@ componentDidMount(){
                                                     <a  href={`/updateRoom/${rooms._id}`}><button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
                                                 </li>
                                                 <li class="list-inline-item">
-                                                    <button class="btn btn-danger btn-sm rounded-0" onClick={()=>this.onDelete(rooms._id)} type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                    <button style={{padding:"4px 10px"}} class="btn btn-danger btn-sm rounded-0" onClick={()=>this.onDelete(rooms._id)} type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                                                 </li>
                                             </ul>
       </td>

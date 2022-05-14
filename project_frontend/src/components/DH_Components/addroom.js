@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-
+import HotelRooms from "./showRooms"
 
 
 export default class AddRooms extends Component {
@@ -39,7 +39,7 @@ onSubmit = (e) =>{
       axios.post(`http://localhost:8000/hotel/addRoom`,data,config)
       .then(res=>{
               alert("Room Added")
-              //window.location = '/login';
+              window.location = '/profile';
       }).catch((err)=>{
           alert(err)
       })
