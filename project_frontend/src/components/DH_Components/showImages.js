@@ -17,6 +17,8 @@ export default class Show extends Component {
   }
 
 
+
+
 componentDidMount(){
     const config = {
         headers: {
@@ -57,12 +59,10 @@ componentDidMount(){
                               <div class="cardwl">
                                 <div>
                                     <div className="card" style={{width: "18rem",marginTop: 15,marginLeft:"1px"}}>
-                                        <img src={images.image} style={{height: "10rem"}}/>
-                                            <div className="card-body">
-                                            <Button variant="outlined" startIcon={<DeleteIcon />}>
-                                                Delete
-                                            </Button>
-                                            </div>
+                                        <img src={images.image} style={{height: "10rem",borderRadius:"5px"}}/>
+                                            
+                                        <button class="button1"><i class="fa fa-trash"></i></button>
+                                            
                                     </div>
                                 </div>
                                 <br/>

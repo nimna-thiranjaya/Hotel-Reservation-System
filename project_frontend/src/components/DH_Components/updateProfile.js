@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 
-export default class TravelerUpdate extends Component {
+export default class HotelUpdate extends Component {
     constructor(props){
         super(props)
         this.state ={

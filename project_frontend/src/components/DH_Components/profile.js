@@ -3,7 +3,7 @@ import { Component } from 'react';
 //import { useParams } from 'react-router-dom';
 import axios from "axios";
 //import Images from './images';
-
+import image1 from "../../asserts/DH_Asserts/ss.jpg"
 
 
 export default class Profile extends Component {
@@ -11,7 +11,8 @@ export default class Profile extends Component {
     constructor(props){
       super(props);
       this.state={
-           hotel:{}
+           hotel:{},
+           images:[]
       }
   }
 
@@ -26,17 +27,19 @@ componentDidMount(){
     axios.get(`http://localhost:8000/hotel/profile`,config).then(res =>{
     if(res.data.success){
             this.setState({
-                hotel:res.data.hotel
+                hotel:res.data.hotel,
+                images:res.data.hotel.images
             });
             
         }
-        console.log(this.state.hotel)
+        console.log(this.state.images)
     })
 }
 
 
     render() {
         const {hname,details,address, phone, email, image } = this.state.hotel;
+        const images = this.state.images;
 
         return (
              
@@ -71,26 +74,27 @@ componentDidMount(){
 
 
 
-<section class="h-100 gradient-custom-2">
-  <div class="container py-5 h-100">
+<section class="h-100 gradient-custom-2" >
+  <div class="container py-5 h-100" >
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-lg-9 col-xl-7">
-        <div class="card">
-          <div class="rounded-top text-white d-flex flex-row" style={{backgroundColor: "#000", height:"200px"}}>
+      <div>
+        <div class="card" >
+          <div class="rounded-top text-white d-flex flex-row" style={{backgroundImage:`url(${image1})`, height:"200px"}}>
             <div class="ms-4 mt-5 d-flex flex-column" style={{width: "150px"}}>
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-                style={{width: "150px", zIndex: "1"}}/>
-              <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
-                style={{zIndex: "1"}}>
-                Edit profile
-              </button>
+              <img src={image}
+                alt="Generic placeholder image" class="rounded-top rounded-bottom  mt-4 mb-2"
+                style={{width: "20rem", height:"15rem", zIndex: "1",marginLeft:"20rem"}}/>
+
             </div>
-            <div class="ms-3" style={{marginTop: "130px"}}>
-              <h5>Andy Horwitz</h5>
+            <div class="" style={{marginTop: "130px",marginLeft:"40rem"}}>
+              <h5>{hname}</h5>
               <p>New York</p>
             </div>
           </div>
+          <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                style={{zIndex: "1",marginTop:"1rem"}}>
+                Edit profile
+              </button>
           <div class="p-4 text-black" style={{backgroundColor: "#f8f9fa"}}>
             <div class="d-flex justify-content-end text-center py-1">
               <div>

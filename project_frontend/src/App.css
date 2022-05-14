@@ -37,6 +37,25 @@
   }
 }
 
+.button1 {
+  position:absolute;
+  bottom:120px;
+  right:10px;
+ background-color: rgba(0, 0, 0, 0) ;
+  border-color: white; 
+  color: white; 
+  padding: 2px 8px; 
+  font-size: 15px;
+  cursor: pointer; 
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+}
+
+.button1:hover {
+  transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
 /* .wrapper{
   background-color: #C2DCF5;
   height: 280px;

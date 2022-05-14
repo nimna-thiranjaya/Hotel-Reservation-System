@@ -281,6 +281,145 @@ router.post("/signup", async (req, res) => {
       });
 
 
+            //get rooms
+  router.get("/displayRooms", auth, async (req, res) => {
+ 
+    try {
+      const hotl = await hotel.findById(req.htl._id)
+
+      if (!hotl) {
+        throw new Error('There is no hotel..!!!')
+      }
+ 
+      res.status(200).send({ success: true, rooms: hotl.rooms });
+    } catch (error) {
+      res.status(500).send({ status: "Error with retrieve", error: error.message });
+    }
+  });
+
+
+
+          //get room details
+          router.get('/getRoom/:id',auth, async (req, res) => {
+    
+            const id = req.params.id;
+            var htl = await hotel.findById(req.htl._id);
+            var rooms = htl.rooms;
+           
+             try {
+              for(var i = 0; i < rooms.length; i++){
+                var im = rooms[i];
+                var x = im._id;
+    
+                if(id === x.toString()){
+                 var room = im       
+                }
+              }
+
+               res.status(200).send({status: 'Room Details retrieved', room: room})
+            } catch (error) {
+              res.status(500).send({error: error.message})
+              console.log(error)
+            }
+          })
+
+
+
+        //update room details
+        router.put('/roomUpdate/:id',auth, async (req, res) => {
+    
+          const id = req.params.id;
+          var htl = await hotel.findById(req.htl._id);
+          var rooms = htl.rooms;
+         
+           try {
+            const {
+              type,
+              size,
+              pricePerNight,
+              facilities,
+              details
+            } = req.body;
+
+
+            for(var i = 0; i < rooms.length; i++){
+              var im = rooms[i];
+              var x = im._id;
+  
+              if(id === x.toString()){
+                hotel.findOneAndUpdate(
+                  { _id: req.htl._id },
+                  { $pull: { rooms: im } },
+                  { new: true }
+                )
+                .then(rooms => console.log(rooms))
+                .catch(err => console.log(err));
+              
+              }
+            }
+
+            let room = {
+              type: type,
+              size: size,
+              pricePerNight: pricePerNight,
+              facilities: facilities,
+              details: details
+            };
+  
+            await hotel.findByIdAndUpdate(
+              { _id: req.htl._id},
+              { $push: { rooms : room } },
+              { new: true, upsert: true },
+  
+           );
+
+         
+             res.status(200).send({status: 'Room Details Updated'})
+          } catch (error) {
+            res.status(500).send({error: error.message})
+            console.log(error)
+          }
+        })
+
+
+
+
+                //remove room
+                router.delete('/roomDelete/:id',auth, async (req, res) => {
+    
+                  const id = req.params.id;
+                  var htl = await hotel.findById(req.htl._id);
+                  var rooms = htl.rooms;
+
+                  try {
+                    for(var i = 0; i < rooms.length; i++){
+                      var im = rooms[i];
+                      var x = im._id;
+          
+                      if(id === x.toString()){
+                        hotel.findOneAndUpdate(
+                          { _id: req.htl._id },
+                          { $pull: { rooms: im } },
+                          { new: true }
+                        )
+                        .then(rooms => console.log(rooms))
+                        .catch(err => console.log(err));
+                      
+                      }
+                    }
+
+                 
+                     res.status(200).send({status: 'Room removed'})
+                  } catch (error) {
+                    res.status(500).send({error: error.message})
+                    console.log(error)
+                  }
+                })
+        
+        
+
+
+
 
   
 

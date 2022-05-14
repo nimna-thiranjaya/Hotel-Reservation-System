@@ -11,6 +11,8 @@ import Show from './components/DH_Components/showImages';
 import ViewImage from './components/DH_Components/viewImage';
 import UpdateProfile from './components/DH_Components/updateProfile';
 import AddRooms from './components/DH_Components/addroom';
+import Rooms from './components/DH_Components/showRooms';
+import RoomUpdate from './components/DH_Components/roomUpdate';
 
 export default class App extends Component {
   render() {
@@ -25,6 +27,9 @@ export default class App extends Component {
               <Route path ='/viewImage/:id' component={ViewImage} />
               <Route path ='/update' component={UpdateProfile} />
               <Route path ='/addRoom' component={AddRooms} />
+              <Route path ='/showRooms' component={Rooms} />
+              <Route path ='/updateRoom/:id' component={RoomUpdate} />
+
             </Switch>
         </Router>
     )
