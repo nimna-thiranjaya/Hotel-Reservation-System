@@ -2,7 +2,14 @@ import React, { Component } from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import CusHome from './components/RS_Components/CusHome';
+import ShowHotels from './components/RS_Components/ShowHotels';
+import ShowRooms from './components/RS_Components/ShowRooms';
+
+
+
+
+
+
 
 
 
@@ -13,7 +20,10 @@ export default class App extends Component {
         <Router>
             <Switch>
               
-              <Route path = "/"  component = {CusHome}/>
+              <Route path = "/hotels"  component = {ShowHotels}/>
+              <Route path = "/hotel/:_id"  component = {ShowRooms}/>
+         
+              
               
             </Switch>
         </Router>
@@ -21,6 +31,15 @@ export default class App extends Component {
   }
 }
 
+
+
+
+ 
+      
+
+       
+       
+      
 
 
 

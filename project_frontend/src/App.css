@@ -36,3 +36,101 @@
     transform: rotate(360deg);
   }
 }
+
+
+.gg{
+  margin-top: 10px;
+}
+
+
+
+
+/* ravi */
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 2s;
+  border: none;
+  
+  }
+
+  .Carousel .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;;
+  }
+ 
+ .Carousel img{
+   width: 1px;
+   height: 1px;
+   box-shadow:10px 10px 10px ;
+ }
+ 
+ .Carousel #pic1{
+   width: 850px;
+   height: 500px;
+   transition-property: width, heght;
+   /* transition-duration: 1s; */
+   
+   
+ }
+ 
+ .Carousel .container{
+   padding: 10px;
+   color: rgb(1, 7, 7);
+ }
+ 
+
+ .bod1{
+    text-align: left;
+    color: #bcd0f7;
+    background: #0b1428;    
+ 
+}
+ 
+ 
+.slider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.image {
+  width: 1200px;
+  height: 600px;
+  border-radius: 10px;
+}
+ 
+.right-arrow {
+ 
+  top: 50%;
+  right: 400px;
+  font-size: 3rem;
+  color: rgb(1, 7, 5);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+ 
+.left-arrow {
+  
+  top: 50%;
+  left: 350px;
+  font-size: 3rem;
+  color: rgb(27, 8, 8);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+} 
+ 
+
+
+
+ 
+
+  
