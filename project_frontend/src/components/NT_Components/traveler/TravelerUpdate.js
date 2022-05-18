@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import image from "../../../asserts/NT_Asserts/ss.jpg"
 
 export default class TravelerUpdate extends Component {
     constructor(props){
@@ -137,127 +138,110 @@ export default class TravelerUpdate extends Component {
 
   render() {
     return (
-        // <div>
-        //     <h3>Traveler Registration</h3>
-        //     <form className='container'>
-        //         fname : <input type="text" name="fname" onChange={this.handleInputChange} value={this.state.fname}/><br/><br/>
-        //         lname : <input type="text" name="lname" onChange={this.handleInputChange} value={this.state.lname}/><br/><br/>
-        //         email : <input type="text" name="email" onChange={this.handleInputChange} value={this.state.email} readOnly/><br/><br/>
-        //         nic : <input type="text" name="nic" onChange={this.handleInputChange} value={this.state.nic}/><br/><br/>
-        //         phone no : <input type="text" name="pno" onChange={this.handleInputChange} value={this.state.pno}/><br/><br/>
-        //         dob : <input type="text" name="dob" onChange={this.handleInputChange} value={this.state.dob}/><br/><br/>
-        //         nationality : <input type="text" name="nationality" onChange={this.handleInputChange} value={this.state.nationality}/><br/><br/>
-        //         gender : <input type="text" name="gender" onChange={this.handleInputChange} value={this.state.gender}/><br/><br/>
-        //         country : <input type="text" name="country" onChange={this.handleInputChange} value={this.state.country}/><br/><br/>
-        //         imageUrl : <input type="file" name="imageUrl"  onChange={this.onFileChange}/><br/><br/>
-        //         <input type="button" onClick={this.onBack} value="Back"/> &nbsp;
-        //         <input type="submit" onClick={this.onSubmit} value="submit"/>
-        //     </form>
-        // </div>
+    <div>
+        <div>
+            <section className="text-center">
+            <div className="p-5 bg-image" style={{backgroundImage: `url(${image})`,height: "300px",backgroundSize: 'cover'}}></div>
 
-        <div>
-        <div>
-        <div class="container">
-                <div class=" text-center mt-5">
-                    <h3 >Traveler Registration</h3>
-                </div>
-            <div className="row ">
-            <div className="col-lg-7 mx-auto">
-                <div className="cardN mt-2 mx-auto p-4">
-                    <div class="cardN-body">
-            
-                    <div className = "container">
-                    <form>
-                    <div className="controls">
+            <div className="card mx-4 mx-md-5 shadow-5-strong" style={{marginTop: "-130px", background: "hsla(0, 0%, 100%, 0.8)",backdropFilter:` blur(20px)`,marginBottom:"3rem"}}>
+                <div className="card-body py-5 px-md-5">
+
+                <div className="row d-flex justify-content-center">
+                    <div className="col-lg-8">
+                    <h2 className="fw-bold mb-5">Update Profile</h2>
+                    <form  name="form">
+                    <div className="row">
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="fname" id="floatingInput" placeholder="First Name" onChange={this.handleInputChange} value={this.state.fname}  required/>
+                            <label for="floatingInput">First Name</label>
+                        </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="lname" id="floatingInput" placeholder="Last Name" onChange={this.handleInputChange} value={this.state.lname}  required/>
+                            <label for="floatingInput">Last Name</label>
+                        </div>
+                        </div>
+                        </div>
 
                         <div className="row">
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label for="form_name">Firstname :</label>
-                                    <input  type="text" className="form-control" required="required" name="fname" onChange={this.handleInputChange} value={this.state.fname}/>
-                                    
-                                </div>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label >Lastname :</label>
-                                    <input  type="text" className="form-control" required="required" name="lname" onChange={this.handleInputChange} value={this.state.lname} />
-                                </div>
-                            </div>
-                            <div className="col-md-8 mx-auto mt-2">
-                                <div className="form-group">
-                                    <label className='mx-auto'>Email :</label>
-                                    <input  type="text" className="form-control"  name="email" onChange={this.handleInputChange} value={this.state.email} readOnly/>
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label className='mx-auto'>NIC :</label>
-                                    <input  type="text" className="form-control"  required="required"  name="nic" onChange={this.handleInputChange} value={this.state.nic}/>
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label className='mx-auto'>Gender :</label>
-                                    <div className="form-group">
-                                <select className="form-control" required="required" name="gender" onChange={this.handleInputChange} value={this.state.gender}>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                                   
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label for="form_name">Phone No :</label>
-                                    <input  type="text" className="form-control" required="required" name="pno" onChange={this.handleInputChange} value={this.state.pno} />
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label >Date Of Birth :</label>
-                                    <input  type="date" className="form-control"  required="required" name="dob" onChange={this.handleInputChange} value={this.state.dob} />
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label for="form_name">Country :</label>
-                                    <input  type="text" className="form-control" required="required" name="country" onChange={this.handleInputChange} value={this.state.country} />
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label >Nationality :</label>
-                                    <input  type="text"  className="form-control" required="required" name="nationality" onChange={this.handleInputChange} value={this.state.nationality} />
-                                </div>
-                            </div>
-                            <center>
-                            <div class="col-md-8 mx-auto mt-3">
-                                <label>Profile Image :</label> &nbsp;
-                                <input type="file" class="form-control form-control-sm" name="imageUrl"  onChange={this.onFileChange} />
-                                {/* <FileBase64 class="form-control form-control-sm" id="formFileSm" type="file" multiple={ false } onDone={({base64}) => setimageUrl(base64)}/> */}
-                            </div>
-                            </center>
-                            <center>
-                            <div className='mt-4'>
-                                <input class='btn btn-secondary' type="button" value="Back" style={{width: 20+"%"}} onClick={this.onBack}/> &nbsp;&nbsp;&nbsp;
-                                <input class='btn btn-primary' type="button" value="Update"  style={{width: 20+"%"}} onClick={this.onSubmit}/> 
-                            </div>
-                        </center>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nic" id="floatingInput" placeholder="NIC" onChange={this.handleInputChange} value={this.state.nic}  required/>
+                            <label for="floatingInput">NIC</label>
                         </div>
-                    </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" name="dob" id="floatingInput" placeholder="Date of Birth" onChange={this.handleInputChange} value={this.state.dob}  required/>
+                            <label for="floatingInput">Date Of Birth</label>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com" onChange={this.handleInputChange} value={this.state.email} required/>
+                            <label for="floatingInput">Email</label>
+                        </div>
+
+                        <div className="row">
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                        <select className="form-control" required="required" id="floatingInput" placeholder="Gender" onChange={this.handleInputChange} value={this.state.gender} name="gender">
+                            <option selected>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="phone" class="form-control" name="phone" id="floatingInput" placeholder="Phone Number" onChange={this.handleInputChange} value={this.state.pno} required/>
+                            <label for="floatingInput">Phone Number</label>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div className="row">
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="country" id="floatingInput" placeholder="country" onChange={this.handleInputChange} value={this.state.country} required/>
+                            <label for="floatingInput">Country</label>
+                        </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nationality" id="floatingInput" placeholder="Nationality" onChange={this.handleInputChange} value={this.state.nationality} required/>
+                            <label for="floatingInput">Nationality</label>
+                        </div>
+                        </div>
+                        </div>
+
+                        <center>
+                        <div class="custom-file">
+                        <h5><label class="custom-file-label" for="customFileLangHTML">Image : </label></h5><br/>
+                        <div class="form-floating mb-3">
+                        <input type="file" class="form-control form-control-sm" name="imageUrl"  onChange={this.onFileChange} style={{width:30+"%"}} />
+                        </div>
+                        </div></center>
+
+                        <br/><br/>
+
+                        <div className='mt-4'>
+                                <input class='btn btn-secondary' type="button" value="Back" style={{width: 20+"%"}} onClick={this.onBack}/> &nbsp;&nbsp;&nbsp;
+                              <input class='btn btn-primary' type="button" value="Update"  style={{width: 20+"%"}} onClick={this.onSubmit}/> 
+                           </div>
                     </form>
+                    </div>
+                </div>
                 </div>
             </div>
-            </div>
-             </div>
-        </div>
-        </div>
-    </div>
+        </section>
 
-        </div>
+    </div>
+    </div>
     )
   }
 }

@@ -60,3 +60,8 @@
   margin-left: 20px;
 
 }
+
+input:not(:placeholder-shown):invalid{
+  border: 3px solid rgb(232, 150, 150);
+  border-radius: 4px;
+};

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import './login.css'
 export default class Login extends Component {
     constructor(props) {
         super(props);
@@ -42,15 +41,6 @@ export default class Login extends Component {
       }
   render() {
     return (
-    //     <div>
-    //     <h3>Traveler Login</h3><br/>
-    //     <form onSubmit={this.userLoginSubmit}>
-    //       email : <input type="text" name='email' onChange={e => this.setState({ email: e.target.value })}/> <br/><br/>
-    //       password : <input type="text" name='password' onChange={e => this.setState({ password: e.target.value })}/> <br/><br/>
-    //       <input type="submit" value="Login"/>
-    //     </form><br/>
-    //     <a href='/register'><button type="button" class="btn btn-primary">Sign Up</button></a>
-    // </div>
     <div className='content'>
       <div class="login-form1">
       <form onSubmit={this.userLoginSubmit} >

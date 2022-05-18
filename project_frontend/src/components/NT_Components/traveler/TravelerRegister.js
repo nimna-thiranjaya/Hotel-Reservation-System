@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import FileBase64 from 'react-file-base64';
-
+import image from "../../../asserts/NT_Asserts/ss.jpg"
+import {toast} from 'react-toastify';
 
 function TravelerRegister(){
 
@@ -49,123 +50,136 @@ function TravelerRegister(){
                 console.log(e);
             })
         }else{
-            console.log("Password not match")
+            toast.warn('Passwords Not Match',{position:toast.POSITION.TOP_Right});
           }
      }
     return (
-        <div>
-        <div class="container">
-                <div class=" text-center mt-4">
-                    <h3 >Traveler Registration</h3>
-                </div>
-            <div className="row ">
-            <div className="col-lg-7 mx-auto">
-                <div className="cardN mt-2 mx-auto p-4">
-                    <div class="cardN-body">
-            
-                    <div className = "container">
-                    <form>
-                    <div className="controls">
+    <div>
+            <section className="text-center">
+            <div className="p-5 bg-image" style={{backgroundImage: `url(${image})`,height: "300px",backgroundSize: 'cover'}}></div>
+
+            <div className="card mx-4 mx-md-5 shadow-5-strong" style={{marginTop: "-130px", background: "hsla(0, 0%, 100%, 0.8)",backdropFilter:` blur(20px)`,marginBottom:"3rem"}}>
+                <div className="card-body py-5 px-md-5">
+
+                <div className="row d-flex justify-content-center">
+                    <div className="col-lg-8">
+                    <h2 className="fw-bold mb-5">Sign up now</h2>
+                    <form  name="form" onSubmit={trevelerRegister}>
+
+
+                        
+                    <div className="row">
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" onChange={(e)=>{setfname(e.target.value);}}  required/>
+                            <label for="floatingInput">First Name</label>
+                        </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" onChange={(e)=>{setlname(e.target.value);}}  required/>
+                            <label for="floatingInput">Last Name</label>
+                        </div>
+                        </div>
+                        </div>
 
                         <div className="row">
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label for="form_name">Firstname :</label>
-                                    <input  type="text" name="fname" className="form-control" placeholder="Please enter your firstname" required="required" onChange={(e)=>{setfname(e.target.value);}}/>
-                                    
-                                </div>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label >Lastname :</label>
-                                    <input  type="text" name="lname" className="form-control" placeholder="Please enter your lastname" required="required" onChange={(e)=>{setlname(e.target.value);}}/>
-                                </div>
-                            </div>
-                            <div className="col-md-8 mx-auto mt-2">
-                                <div className="form-group">
-                                    <label className='mx-auto'>Email :</label>
-                                    <input  type="text" className="form-control" placeholder="Please enter your Email" required="required" name="email" onChange={(e)=>{setemail(e.target.value);}}/>
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label className='mx-auto'>NIC :</label>
-                                    <input  type="text" className="form-control" placeholder="Please enter your NIC" required="required" data-error="Lastname is required." name="nic" onChange={(e)=>{setnic(e.target.value);}}/>
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label className='mx-auto'>Gender :</label>
-                                    <div className="form-group">
-                                <select className="form-control" required="required" data-error="Please specify your Gender" name="gender" onChange={(e)=>{setgender(e.target.value);}}>
-                                    <option selected>-- Select Your Gender --</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                                   
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label for="form_name">Phone No :</label>
-                                    <input  type="text" className="form-control" placeholder="Please enter your Phone No" required="required" name="pno" onChange={(e)=>{setpno(e.target.value);}}/>
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label >Date Of Birth :</label>
-                                    <input  type="date" className="form-control" placeholder="Please enter your Date of Birth" required="required" name="dob" onChange={(e)=>{setdob(e.target.value);}}/>
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label for="form_name">Country :</label>
-                                    <input  type="text" className="form-control" placeholder="Please enter your Country" required="required" name="country" onChange={(e)=>{setcountry(e.target.value);}}/>
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label >Nationality :</label>
-                                    <input  type="text"  className="form-control" placeholder="Please enter your Nationality" required="required" name="nationality" onChange={(e)=>{setnationality(e.target.value);}}/>
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label for="form_name">Password :</label>
-                                    <input  type="password" className="form-control" placeholder="Please enter your Password" required="required" name="password" onChange={(e)=>{setpassword(e.target.value);}} />
-                                </div>
-                            </div>
-                            <div className="col-md-6 mt-2">
-                                <div className="form-group">
-                                    <label >Confirm Password :</label>
-                                    <input  type="password" className="form-control" placeholder="Please enter your Confirm Password" required name="cpassword" onChange={(e)=>{setcpassoword(e.target.value);}} />
-                                </div>
-                            </div>
-                            <center>
-                            <div class="col-md-8 mx-auto mt-3">
-                                <label>Profile Image :</label> &nbsp;
-                                <FileBase64 class="form-control form-control-sm" id="formFileSm" type="file" multiple={ false } onDone={({base64}) => setimageUrl(base64)}/>
-                            </div>
-                            </center>
-                            <center>
-                            <div className='mt-4'>
-                                <input class='btn btn-secondary' type="reset" value="Reset" style={{width: 20+"%"}}/> &nbsp;&nbsp;&nbsp;
-                                <input class='btn btn-primary' type="button" value="Register" onClick={trevelerRegister} style={{width: 20+"%"}}/> 
-                            </div>
-                        </center>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nic" id="nic" placeholder="NIC" 
+                            pattern ="[0-9]{12}||[0-9]{9}[v||V]"
+                            onChange={(e)=>{setnic(e.target.value);}}
+                            required/>
+                            <label for="floatingInput">NIC</label>
                         </div>
-                    </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" onChange={(e)=>{setdob(e.target.value);}} />
+                            <label for="floatingInput">Date Of Birth</label>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" 
+                            pattern="(?![.-])((?![.-][.-])[a-zA-Z\d.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}"
+                            onChange={(e)=>{setemail(e.target.value);}}  required/>
+                            <label for="floatingInput">Email</label>
+                        </div>
+
+                        <div className="row">
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                        <select className="form-control" required="required" id="gender" placeholder="Gender"  name="gender" onChange={(e)=>{setgender(e.target.value);}}>
+                            <option selected>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="phone" class="form-control" name="phone" id="pno" placeholder="Phone Number" minLength={10} onChange={(e)=>{setpno(e.target.value);}}  required/>
+                            <label for="floatingInput">Phone Number</label>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div className="row">
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="password" id="pwd" placeholder="Password" 
+                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$"  required="true"
+                            onChange={(e)=>{setpassword(e.target.value);}}/>
+                            <label for="floatingInput">Password</label>
+                        </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="cpassword" id="cpwd" placeholder="Password" 
+                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$"  required="true"
+                            onChange={(e)=>{setcpassoword(e.target.value);}}/>
+                            <label for="floatingInput">Confirm Password</label>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div className="row">
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="country" id="country" placeholder="country" onChange={(e)=>{setcountry(e.target.value);}}  required/>
+                            <label for="floatingInput">Country</label>
+                        </div>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nationality" id="nationality" placeholder="Nationality" onChange={(e)=>{setnationality(e.target.value);}}  required/>
+                            <label for="floatingInput">Nationality</label>
+                        </div>
+                        </div>
+                        </div>
+
+
+                        <div class="custom-file">
+                        <h5><label class="custom-file-label" for="customFileLangHTML">Image : </label></h5><br/>
+                        <FileBase64 class="form-control form-control-sm" id="formFileSm" type="file" multiple={ false } onDone={({base64}) => setimageUrl(base64)} required/>
+                        </div>
+
+                        <br/><br/>
+
+                        <div className='mt-4'>
+                               <input class='btn btn-secondary' type="reset" value="Reset" style={{width: 20+"%"}}/> &nbsp;&nbsp;&nbsp;
+                               <input class='btn btn-primary' type="submit" value="Register" style={{width: 20+"%"}}/> 
+                           </div>
                     </form>
+                    </div>
+                </div>
                 </div>
             </div>
-            </div>
-            <br/>
-            <p class="text-center"> Do you have Account already? <a href="/">Login</a></p>
-            </div>
-        </div>
-        </div>
+            </section>
+
     </div>
     )
 }
