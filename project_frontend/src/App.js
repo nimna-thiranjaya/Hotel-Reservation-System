@@ -11,9 +11,6 @@ import ShowRooms from './components/RS_Components/ShowRooms';
 
 
 
-
-
-
 export default class App extends Component {
   render() {
     return (

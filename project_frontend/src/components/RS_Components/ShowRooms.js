@@ -121,43 +121,52 @@ onSubmit = id2 => e =>{
 
     return(
       
-      <div style = {{marginTop:'20px'}} className="container">
+
+      <div className="pt-0" align="center" background color="red">
+            <div className="shadow col-md-9 mt-10 mx-auto" id="cardcol">
+
+      <div style = {{marginTop:'20px'}} className="container-sm" >
+
+      <div className="card-header py-3">
+              <h1 className="m-0 font-weight-bold text-dark" id="rs"> {hname}</h1><br/>
+  
+    </div>
         
-      <h3>{hname}</h3>
       
-      <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" style={{ width: '350px', height: '180px%' }} src={image}/></div>
+      
+      <div className="card-image waves-effect waves-block waves-light" align="center">
+          <img className="activator"  style={{ width: '350px', height: '180px%' }} src={image}/></div>
 
       <hr/>
       <dl className="row">
         
         
         <dt className="col-sm-3">Details</dt>
-        <dd className ="col-sm-9">{details}</dd>
+        <dd className ="col-sm-9" >{details}</dd>
         <br/><br/><br/><br/>
 
         <dt className="col-sm-3">Address</dt>
-        <dd className ="col-sm-9">{address}</dd>
+        <dd className ="col-sm-9" align="left">{address}</dd>
         <br/>
 
         <dt className="col-sm-3">Phone</dt>
-        <dd className ="col-sm-9">{phone}</dd>
+        <dd className ="col-sm-9" align="left">{phone}</dd>
 
-        <dt className="col-sm-3">Email</dt>
-        <dd className ="col-sm-9">{email}</dd>
+        <dt className="col-sm-3"> Email</dt>
+        <dd className ="col-sm-9" align="left">{email}</dd>
         </dl>
 
         <br/><br/>
             
- <div className="Carousel" >            
-        <div className="container">
+ <div className="Carousel"  >            
+        <div className="container"  >
        
           <div>
             <FaArrowCircleLeft class="left-arrow" onClick={this.shiftLeft} size="32"/>
           </div>    
           
           {this.state.images.map((src, index) =>
-              <div key={index}>
+              <div key={index} >
                 <img id={'pic' + index} src={src.image}
                 alt="img" />
                 
@@ -170,16 +179,16 @@ onSubmit = id2 => e =>{
           </div>
          </div>
          
-         <div className="wrapper">
-     <div className="row" style={{ paddingTop: 1 , paddingBottom: 1,  }} >
+         <div className="wrapper" align="left">
+     <div className="row" style={{ paddingTop: 1 , paddingBottom: 1, alignContent :'center'  }} >
        
         {this.state.images.map((item) => (
             
-            <div className="card" style={{ borderRadius:"22px",width: "10rem",height:"10rem" , marginRight: "1rem", colorRenderin: "20rem" , marginTop: "1rem"}}>
-            <img className="card-img-top" src={item.image} alt="Card image cap" style={{ borderRadius:"27px", borderColor: "#000000", height: "10rem",marginTop: 15,marginRight:1,marginLeft:1}}/>
+            <div className="card"  style={{ borderRadius:"22px",width: "10rem",height:"10rem" , marginRight: "1rem", colorRenderin: "20rem" , marginTop: "1rem"}}>
+            <img className="card-img-top" src={item.image} alt="Card image cap"  style={{ borderRadius:"27px", borderColor: "#000000", height: "10rem",marginTop: 15,marginRight:1,marginLeft:1}}/>
            
            
-            <div className="card-body">
+            <div className="card-body" >
                     
             </div>
             
@@ -253,6 +262,10 @@ onSubmit = id2 => e =>{
           </div> */}
           <br/><br/><br/><br/><br/><br/>
         
+
+        
+      </div>
+      </div>
       </div>
     
       

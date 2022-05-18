@@ -56,9 +56,8 @@ router.route('/displayhotel').get((req,res) =>{
   const id2 = req.params.id2;
   const htl = await hotel.findById(id1);
 
-  var rooms = htl.rooms;
-           
-             
+  var rooms = htl.rooms;    
+        
               for(var i = 0; i < rooms.length; i++){
                 var im = rooms[i];
                 var x = im._id;
