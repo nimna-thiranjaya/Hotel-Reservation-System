@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 
-export default class RoomUpdate extends Component {
+export default class RoomUpdate extends Component {cl
     constructor(props){
         super(props)
         this.state ={

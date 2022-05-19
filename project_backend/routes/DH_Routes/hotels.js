@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/hotelAuth");
 
 
+
 //sign up
 router.post("/signup", async (req, res) => {
 
@@ -122,6 +123,7 @@ router.post("/signup", async (req, res) => {
           res.send({ status: "Error with /profile", error: error.message });
         }
       });
+
 
 
 
@@ -417,12 +419,6 @@ router.post("/signup", async (req, res) => {
                     console.log(error)
                   }
                 })
-        
-        
 
-
-
-
-  
 
   module.exports = router;

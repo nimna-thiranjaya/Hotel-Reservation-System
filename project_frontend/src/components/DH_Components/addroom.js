@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import HotelRooms from "./showRooms"
-
+import image1 from "../../asserts/DH_Asserts/ss.jpg"
 
 export default class AddRooms extends Component {
   constructor(props){
@@ -49,8 +48,8 @@ onSubmit = (e) =>{
 
   render() {
       return (
-       
-          <div className="card mx-4 mx-md-5 shadow-5-strong" style={{marginTop: "30px", background: "hsla(0, 0%, 100%, 0.8)",backdropFilter:` blur(20px)`, boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
+       <div className="p-5 bg-image" style={{backgroundImage: `url(${image1})`,height: "200px",backgroundSize: 'cover'}}>
+          <div className="card mx-4 mx-md-5 shadow-5-strong" style={{marginTop: "55px", background: "hsla(0, 0%, 100%, 0.8)",backdropFilter:` blur(20px)`, boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
 
                 <center><h2 className="fw-bold mt-3"  style={{color: "gray"}}>ADD ROOM</h2></center>
                 <form name="form" onSubmit={this.onSubmit}> 
@@ -117,14 +116,14 @@ onSubmit = (e) =>{
                         <label for="floatingInput">Details</label>
                     </div>
                     
-            <button type="submit" style={{marginLeft: "86%"}} className="btn btn-primary btn-block mb-4">
+            <button type="submit" style={{marginLeft: "85%",padding:"5px 50px"}} className="btn btn-primary btn-block mb-4">
               ADD ROOM
             </button>
     
             </div> 
           </form> 
           </div>   
-        
+          </div>
   
       )
   

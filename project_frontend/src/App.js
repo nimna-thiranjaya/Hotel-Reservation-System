@@ -6,12 +6,8 @@ import './App.css'
 import Signup from './components/DH_Components/signup';
 import Login from './components/DH_Components/login';
 import Profile from './components/DH_Components/profile';
-import Images from './components/DH_Components/images';
-import Show from './components/DH_Components/showImages';
-import ViewImage from './components/DH_Components/viewImage';
 import UpdateProfile from './components/DH_Components/updateProfile';
 import AddRooms from './components/DH_Components/addroom';
-import Rooms from './components/DH_Components/showRooms';
 import RoomUpdate from './components/DH_Components/roomUpdate';
 
 export default class App extends Component {
@@ -22,12 +18,8 @@ export default class App extends Component {
               <Route path ='/aa' component={Signup} />
               <Route path ='/login' component={Login} />
               <Route path ='/profile' component={Profile} />
-              <Route path ='/images' component={Images} />
-              <Route path ='/show' component={Show} />
-              <Route path ='/viewImage/:id' component={ViewImage} />
               <Route path ='/update' component={UpdateProfile} />
               <Route path ='/addRoom' component={AddRooms} />
-              <Route path ='/showRooms' component={Rooms} />
               <Route path ='/updateRoom/:id' component={RoomUpdate} />
 
             </Switch>

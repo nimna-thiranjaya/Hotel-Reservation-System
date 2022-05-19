@@ -1,10 +1,8 @@
 import React from "react";
 import { Component } from 'react';
-//import { useParams } from 'react-router-dom';
 import axios from "axios";
 //import Images from './images';
 import image1 from "../../asserts/DH_Asserts/ss.jpg"
-import HotelRooms from "./showRooms"
 import FileBase64 from 'react-file-base64';
 import image11 from "../../asserts/DH_Asserts/png-transparentl.png"
 
@@ -266,10 +264,6 @@ componentDidMount(){
             </table>
             <a href = "/update">
             <button style={{marginLeft:"90%"}} type="button" class="btn btn-primary">Update Profile</button></a>
-
-        
-          <div>{HotelRooms}</div>
-      
 
           </div>
         </div>
