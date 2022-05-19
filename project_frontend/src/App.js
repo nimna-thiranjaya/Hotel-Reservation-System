@@ -11,7 +11,6 @@ import TravelerRegister from './components/NT_Components/traveler/TravelerRegist
 import TravelerUpdate from './components/NT_Components/traveler/TravelerUpdate';
 import Payment from './components/NT_Components/payment/Payment';
 
-
 import ShowHotels from './components/RS_Components/ShowHotels';
 import ShowRooms from './components/RS_Components/ShowRooms';
 import ShowReservation from './components/RS_Components/ShowReservation';

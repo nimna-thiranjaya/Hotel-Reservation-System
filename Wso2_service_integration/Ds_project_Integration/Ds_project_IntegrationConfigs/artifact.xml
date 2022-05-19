@@ -77,4 +77,22 @@
     <artifact name="getHotels" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/endpoints/getHotels.xml</file>
     </artifact>
+    <artifact name="getSpecificHotel" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getSpecificHotel.xml</file>
+    </artifact>
+    <artifact name="getSpecificRoom" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getSpecificRoom.xml</file>
+    </artifact>
+    <artifact name="addReservation" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/addReservation.xml</file>
+    </artifact>
+    <artifact name="getSpecificTraveler" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getSpecificTraveler.xml</file>
+    </artifact>
+    <artifact name="getSpecificResevation" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getSpecificResevation.xml</file>
+    </artifact>
+    <artifact name="deleteResevation" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/deleteResevation.xml</file>
+    </artifact>
 </artifacts>

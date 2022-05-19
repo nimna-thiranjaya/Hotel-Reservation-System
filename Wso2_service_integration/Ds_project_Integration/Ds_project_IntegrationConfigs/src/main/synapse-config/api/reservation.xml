@@ -14,4 +14,88 @@
         </outSequence>
         <faultSequence/>
     </resource>
+    <resource methods="GET" uri-template="/getSpecificHotel/{id}">
+        <inSequence>
+            <log>
+                <property name="message" value="Get spesific hotel service started.........!"/>
+            </log>
+            <send>
+                <endpoint key="getSpecificHotel"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/getSpecificRoom/{id}">
+        <inSequence>
+            <log>
+                <property name="message " value="Get specific room service started.....!"/>
+            </log>
+            <send>
+                <endpoint key="getSpecificRoom"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/addReservation/{id1}/{id2}">
+        <inSequence>
+            <log>
+                <property name="message" value="Create reservation service started.....!"/>
+            </log>
+            <send>
+                <endpoint key="addReservation"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/getSpecificTraveler">
+        <inSequence>
+            <log>
+                <property name="message" value="Get Specific Traveler service started..........!"/>
+            </log>
+            <send>
+                <endpoint key="getSpecificTraveler"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/getSpecificResevation/{id}">
+        <inSequence>
+            <log>
+                <property name="message" value="Get Reservation service started............!"/>
+            </log>
+            <send>
+                <endpoint key="getSpecificResevation"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/deleteResevation/{id}">
+        <inSequence>
+            <log>
+                <property name="message" value="Delete Reservation service started...........!"/>
+            </log>
+            <send>
+                <endpoint key="deleteResevation"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
 </api>

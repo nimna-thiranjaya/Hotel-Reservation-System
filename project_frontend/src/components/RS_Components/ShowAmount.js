@@ -17,7 +17,7 @@ export default class ShowAmount extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
       
-        axios.get(`http://localhost:8000/booking/reservations/${id}`).then((res)=>{
+        axios.get(`http://localhost:8280/reservation/getSpecificResevation/${id}`).then((res)=>{
           console.log(res.data);
 
           if (res.data.status){
