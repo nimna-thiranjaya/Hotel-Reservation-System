@@ -39,7 +39,7 @@ export default class ShowAmount extends Component {
 
   render() {
 
-    const{hname,type,size,CheckinDate,nightsCount,amount} = this.state.reservationDelails;
+    const{_id,hname,type,size,CheckinDate,nightsCount,amount} = this.state.reservationDelails;
     return (
       <div>
           <div className="pt-0" align="center" background color="red">
@@ -84,7 +84,7 @@ export default class ShowAmount extends Component {
 
 
         <div>
-         <a><button type="button" class="btn btn-warning">Pay Now</button> </a>
+         <a href={`/payment/${_id}`}><button type="button" class="btn btn-warning">Pay Now</button> </a>
       </div>
       <br/>
 

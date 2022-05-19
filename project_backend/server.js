@@ -29,32 +29,29 @@ mongoose.connect(URL, {
     //useFindAndModify: false
 });
 
-const travelerRouter = require("./routes/NT_Routes/traveler")
-const paymentdetailRouter = require("./routes/NT_Routes/paymentdetails")
+
 
 const connection = mongoose.connection;
 connection.once("open", () => {
 console.log("Mongodb connection success!!!");
 })
 
+//Traveler routs
+const travelerRouter = require("./routes/NT_Routes/traveler")
 app.use("/traveler",travelerRouter);
+
+//payment route
+const paymentdetailRouter = require("./routes/NT_Routes/paymentdetails")
 app.use("/paymentdetails",paymentdetailRouter);
 
-// @import routes
+//Hotel routes
 const hotelRouter = require("./routes/DH_routes/hotels");
-
-
-// rotues
 app.use("/hotel",hotelRouter);
-// @import routes
+
+//reservation rout
 const bookingRouter = require("./routes/RS_Routes/booking");
-const travelerRouter = require("./routes/NT_Routes/traveler");
-
-
-
-// rotues
 app.use("/booking", bookingRouter)
-app.use("/traveler", travelerRouter)
+
 
 
 

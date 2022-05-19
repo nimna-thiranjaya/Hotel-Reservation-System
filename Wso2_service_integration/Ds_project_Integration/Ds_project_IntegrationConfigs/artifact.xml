@@ -71,4 +71,10 @@
     <artifact name="uploadImages" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/endpoints/uploadImages.xml</file>
     </artifact>
+    <artifact name="reservation" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/reservation.xml</file>
+    </artifact>
+    <artifact name="getHotels" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getHotels.xml</file>
+    </artifact>
 </artifacts>

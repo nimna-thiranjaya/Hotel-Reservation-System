@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/reservation" name="reservation" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" url-mapping="/getHotels">
+        <inSequence>
+            <log>
+                <property name="message " value="Get Hotels service started........!"/>
+            </log>
+            <send>
+                <endpoint key="getHotels"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
