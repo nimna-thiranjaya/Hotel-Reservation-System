@@ -132,7 +132,7 @@ router.route('/displayhotel').get((req,res) =>{
   });
     
 
-  //get specific traveler reservation info
+  //get Checkout detailes eith specific id
   
   router.get("/reservations/:id", async (req, res) => {
 
