@@ -6,6 +6,7 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { request } = require("express");
+const auth = require("../../middleware/traveler_auth");
 
 
 
@@ -49,15 +50,14 @@ router.route('/displayhotel').get((req,res) =>{
 
   //create reservation info
   
-  router.post("/reservation/:id1/:id2",  async (req, res) => {
-  
+  router.post("/reservation/:id1/:id2",auth, async (req, res) => {
+
       try {
   const id1 = req.params.id1;
   const id2 = req.params.id2;
   const htl = await hotel.findById(id1);
 
-  var rooms = htl.rooms;    
-        
+  var rooms = htl.rooms;            
               for(var i = 0; i < rooms.length; i++){
                 var im = rooms[i];
                 var x = im._id;
@@ -74,11 +74,20 @@ router.route('/displayhotel').get((req,res) =>{
             nightsCount
     
         } = req.body;
+
+        const Date = await reservation.find({CheckinDate:CheckinDate})
+        console.log(Date.length)
+
+        if(Date.length > 0){
+
+          throw new Error("You already have reservations on this day!!! ")
+        }
        
         const amount = room.pricePerNight *nightsCount;
          
    
         const reservation1 = {
+          tvId : req.traveler1._id,
           hname: htl.hname,
           type: room.type,
           size: room.size,
@@ -87,7 +96,6 @@ router.route('/displayhotel').get((req,res) =>{
           nightsCount:nightsCount,
           amount:amount
         
-        //   travelerId: req.traveler._id
         };
    
         const newreservation = new reservation(reservation1);
@@ -105,6 +113,58 @@ router.route('/displayhotel').get((req,res) =>{
   
   
 
+    //get specific traveler reservation info
+  
+  router.get("/myreservations",auth, async (req, res) => {
+
+    try {
+      const reservations = await reservation.find({tvId:req.traveler1._id})
+
+      
+      res
+        .status(201)
+        .send({ status: "reservation retrives", reservations: reservations });
+ 
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send({error: error.message});
+    }
+  });
+    
+
+  //get specific traveler reservation info
+  
+  router.get("/reservations/:id", async (req, res) => {
+
+    try {
+      const id = req.params.id;
+      const reservation1 = await reservation.findById(id)
+
+      
+      res
+        .status(201)
+        .send({ status: "reservation retrives", reservation: reservation1 });
+ 
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send({error: error.message});
+    }
+  });
+
+
+  //Delete reservation
+router.route('/delete/:id').delete((req,res)=>{
+  reservation.findByIdAndRemove(req.params.id).exec((err,deleteAd)=>{
+     
+      if(err) return res.status(400).json({
+          message: "Delete Unsuccessfully",err
+      });
+     
+      return res.json({
+          message: "Delete Successfull",deleteAd
+      });
+  });
+});
 
 
 

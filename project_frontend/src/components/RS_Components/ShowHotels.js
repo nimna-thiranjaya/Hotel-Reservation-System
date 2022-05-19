@@ -38,7 +38,10 @@ export default class ShowHotels extends Component {
 
       <div style={{  backgroundImage: 'url(https://wallpapermemory.com/uploads/515/resort-background-hd-1920x1200-486717.jpg)', height: "100%", width: "100%"}}>
 
-         <div className="container-sm" style={{ paddingTop: 25 , paddingBottom: 25, marginTop: 10 }} >
+<div className="pt-0" align="center" background color="red">
+            <div className="shadow col-md-11 mt- mx-auto"  id="cardcol">
+         
+      
       
         
     <div className="wrapper">
@@ -67,7 +70,8 @@ export default class ShowHotels extends Component {
       </div>
         
         
-      </div>
+      
+      </div></div>
       </div>
       
     )

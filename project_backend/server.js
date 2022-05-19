@@ -36,11 +36,13 @@ console.log("Mongodb connection success!!!");
 
 // @import routes
 const bookingRouter = require("./routes/RS_Routes/booking");
+const travelerRouter = require("./routes/NT_Routes/traveler");
 
 
 
 // rotues
 app.use("/booking", bookingRouter)
+app.use("/traveler", travelerRouter)
 
 
 

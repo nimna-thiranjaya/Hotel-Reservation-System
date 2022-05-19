@@ -41,7 +41,7 @@ const reservationSchema = new mongoose.Schema({
       },
 
 
-    travelerId: {
+      tvId: {
       type: mongoose.Schema.Types.ObjectId,     
       ref: "traveler"
 

@@ -27,11 +27,11 @@ export default class ShowRooms extends Component {
 
 onSubmit = id2 => e =>{
 
-  // const config = {
-  //     headers: {
-  //       Authorization: localStorage.getItem("Authorization"),
-  //     },
-  //   };
+  const config = {
+      headers: {
+        Authorization: localStorage.getItem("Authorization"),
+      },
+    };
 
   const id1 = this.props.match.params._id;
 
@@ -46,19 +46,18 @@ onSubmit = id2 => e =>{
             CheckinDate,
             CheckoutDate,
             nightsCount};
-    console.log(data)
+    
 
-    axios.post(`http://localhost:8000/booking/reservation/${id1}/${id2}`,data)
+    axios.post(`http://localhost:8000/booking/reservation/${id1}/${id2}`,data ,config)
     .then(res=>{
+      console.log(config)
             alert("reservation successful")
-            window.location.reload();
+           
     }).catch((err)=>{
-        alert(err)
+        alert("You already have reservations on this day!!!")
     })
 
 }
-
-
 
 
   componentDidMount(){
@@ -123,7 +122,7 @@ onSubmit = id2 => e =>{
       
 
       <div className="pt-0" align="center" background color="red">
-            <div className="shadow col-md-9 mt-10 mx-auto" id="cardcol">
+            <div className="shadow col-md-9 mt-10 mx-auto" >
 
       <div style = {{marginTop:'20px'}} className="container-sm" >
 
@@ -131,16 +130,13 @@ onSubmit = id2 => e =>{
               <h1 className="m-0 font-weight-bold text-dark" id="rs"> {hname}</h1><br/>
   
     </div>
-        
-      
-      
+           
       <div className="card-image waves-effect waves-block waves-light" align="center">
           <img className="activator"  style={{ width: '350px', height: '180px%' }} src={image}/></div>
 
       <hr/>
       <dl className="row">
-        
-        
+             
         <dt className="col-sm-3">Details</dt>
         <dd className ="col-sm-9" >{details}</dd>
         <br/><br/><br/><br/>
@@ -244,7 +240,8 @@ onSubmit = id2 => e =>{
                     value={this.setState.nightsCount }
                     onChange={this.handleInputChange} />
 
-                <br/><button type="submit" style={{width:"10rem"}}   class="btn btn-success btn-rounded">I'll reserve</button>
+                <br/>
+                <button type="submit" style={{width:"10rem"}}   class="btn btn-success btn-rounded">I'll reserve</button>
                   </form>
                   </td>
                 {/* <td>{size}</td>
