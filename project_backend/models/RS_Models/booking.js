@@ -41,7 +41,7 @@ const reservationSchema = new mongoose.Schema({
       },
 
 
-    travelerId: {
+      tvId: {
       type: mongoose.Schema.Types.ObjectId,     
       ref: "traveler"
 
@@ -53,3 +53,4 @@ const reservationSchema = new mongoose.Schema({
 const reservation = mongoose.model("reservations", reservationSchema);
  
 module.exports = reservation;
+ 

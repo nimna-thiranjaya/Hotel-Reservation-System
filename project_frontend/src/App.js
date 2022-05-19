@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+<<<<<<< HEAD
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,6 +11,19 @@ import ProfileN from './components/NT_Components/traveler/Profile';
 import TravelerRegister from './components/NT_Components/traveler/TravelerRegister';
 import TravelerUpdate from './components/NT_Components/traveler/TravelerUpdate';
 import Payment from './components/NT_Components/payment/Payment';
+=======
+import ShowHotels from './components/RS_Components/ShowHotels';
+import ShowRooms from './components/RS_Components/ShowRooms';
+import Login from './components/NT_Components/traveler/Login';
+import ShowReservation from './components/RS_Components/ShowReservation';
+import ShowAmount from './components/RS_Components/ShowAmount';
+
+
+
+
+
+
+>>>>>>> 1e3acdc44f2809a59ff49a664a9e3b80452ca41e
 
 
 import Signup from './components/DH_Components/signup';
@@ -45,3 +59,35 @@ function App() {
     )
 }
 export default App;
+              
+              <Route path = "/home"  component = {ShowHotels}/>
+              <Route path = "/hotel/:_id"  component = {ShowRooms}/>
+              <Route path = "/login"  component = {Login}/>
+              <Route path = "/show"  component = {ShowReservation}/>
+              <Route path = "/checkout/:id"  component = {ShowAmount}/>
+             
+         
+              
+              
+            </Switch>
+        </Router>
+    )
+  }
+}
+
+
+
+
+ 
+      
+
+       
+       
+      
+
+
+
+
+
+
+
