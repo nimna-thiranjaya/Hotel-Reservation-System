@@ -46,7 +46,7 @@ export default class HotelUpdate extends Component {
                     Authorization: localStorage.getItem("Authorization")
                  }
             }   
-            axios.get(`http://localhost:8000/hotel/profile`,config).then(res =>{
+            axios.get(`http://localhost:8280/hotel/hotelProfile`,config).then(res =>{
                 if(res.data.success){
                 this.setState({
                     hname : res.data.hotel.hname,
@@ -91,7 +91,7 @@ export default class HotelUpdate extends Component {
              }
         } 
 
-        axios.put("http://localhost:8000/hotel/update",UpdateHotel, config).then((res)=>{
+        axios.put("http://localhost:8280/hotel/uploadImages",UpdateHotel, config).then((res)=>{
             if(res.data){
                 this.setState({
                     hname:"",
@@ -118,19 +118,6 @@ export default class HotelUpdate extends Component {
   render() {
     return (
         <div>
-            {/* <h3>Hotel Update</h3>
-            <form className='container'>
-                hname : <input type="text" name="hname" onChange={this.handleInputChange} value={this.state.hname}/><br/><br/>
-                details : <input type="text" name="details" onChange={this.handleInputChange} value={this.state.details}/><br/><br/>
-                email : <input type="text" name="email" onChange={this.handleInputChange} value={this.state.email} readOnly/><br/><br/>
-                phone : <input type="text" name="phone" onChange={this.handleInputChange} value={this.state.phone}/><br/><br/>
-                image : <input type="file" name="image"  onChange={this.onFileChange}/><br/><br/>
-                <input type="button" onClick={this.onBack} value="Back"/> &nbsp;
-                <input type="submit" onClick={this.onSubmit} value="submit"/>
-            </form> */}
-
-
-
 <section className="text-center">
   <div className="p-5 bg-image" style={{backgroundImage: `url(${image})`,height: "300px",backgroundSize: 'cover'}}></div>
 

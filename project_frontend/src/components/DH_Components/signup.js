@@ -36,7 +36,7 @@ if(this.state.pwd === this.state.cpwd){
       const data = {hname,details,address,email,phone,pwd,image};
       console.log(data)
 
-      axios.post(`http://localhost:8000/hotel/signup`,data)
+      axios.post(`http://localhost:8280/hotel/hotelSignup`,data)
       .then(res=>{
               alert("Hotel Registered")
               window.location = '/login';

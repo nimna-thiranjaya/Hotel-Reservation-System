@@ -9,23 +9,42 @@
   <name>Ds_project_IntegrationCompositeExporter</name>
   <description>Ds_project_IntegrationCompositeExporter</description>
   <properties>
-    <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
-    <com.example.endpoint_._updateProfile>capp/EnterpriseServiceBus</com.example.endpoint_._updateProfile>
-    <com.example.endpoint_._sendMail>capp/EnterpriseServiceBus</com.example.endpoint_._sendMail>
-    <com.example.endpoint_._travelerLogin>capp/EnterpriseServiceBus</com.example.endpoint_._travelerLogin>
+    <com.example.endpoint_._hotelSignup>capp/EnterpriseServiceBus</com.example.endpoint_._hotelSignup>
+    <com.example.api_._traveler>capp/EnterpriseServiceBus</com.example.api_._traveler>
     <com.example.endpoint_._deleteProfile>capp/EnterpriseServiceBus</com.example.endpoint_._deleteProfile>
-    <com.example.api_._email>capp/EnterpriseServiceBus</com.example.api_._email>
     <com.example.endpoint_._doPayment>capp/EnterpriseServiceBus</com.example.endpoint_._doPayment>
+    <com.example.endpoint_._addRooms>capp/EnterpriseServiceBus</com.example.endpoint_._addRooms>
+    <com.example.api_._hotel>capp/EnterpriseServiceBus</com.example.api_._hotel>
+    <com.example.endpoint_._uploadImages>capp/EnterpriseServiceBus</com.example.endpoint_._uploadImages>
+    <com.example.endpoint_._hotelImageDelete>capp/EnterpriseServiceBus</com.example.endpoint_._hotelImageDelete>
+    <com.example.endpoint_._getProfile>capp/EnterpriseServiceBus</com.example.endpoint_._getProfile>
+    <com.example.endpoint_._getReservation>capp/EnterpriseServiceBus</com.example.endpoint_._getReservation>
+    <com.example.endpoint_._deleteHotelRoom>capp/EnterpriseServiceBus</com.example.endpoint_._deleteHotelRoom>
+    <com.example.endpoint_._travelerLogin>capp/EnterpriseServiceBus</com.example.endpoint_._travelerLogin>
+    <com.example.endpoint_._getHotelRoom>capp/EnterpriseServiceBus</com.example.endpoint_._getHotelRoom>
+    <com.example.endpoint_._getHotelRooms>capp/EnterpriseServiceBus</com.example.endpoint_._getHotelRooms>
+    <com.example.endpoint_._hotelProfile>capp/EnterpriseServiceBus</com.example.endpoint_._hotelProfile>
+    <com.example.endpoint_._updateRooms>capp/EnterpriseServiceBus</com.example.endpoint_._updateRooms>
+    <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.example.endpoint_._getHotelImages>capp/EnterpriseServiceBus</com.example.endpoint_._getHotelImages>
+    <com.example.endpoint_._hotelUpdate>capp/EnterpriseServiceBus</com.example.endpoint_._hotelUpdate>
+    <com.example.endpoint_._updateProfile>capp/EnterpriseServiceBus</com.example.endpoint_._updateProfile>
+    <com.example.endpoint_._hotelLogin>capp/EnterpriseServiceBus</com.example.endpoint_._hotelLogin>
+    <com.example.api_._email>capp/EnterpriseServiceBus</com.example.api_._email>
+    <com.example.endpoint_._sendMail>capp/EnterpriseServiceBus</com.example.endpoint_._sendMail>
     <com.example.api_._payment>capp/EnterpriseServiceBus</com.example.api_._payment>
     <com.example.endpoint_._regTraveler>capp/EnterpriseServiceBus</com.example.endpoint_._regTraveler>
-    <com.example.endpoint_._getReservation>capp/EnterpriseServiceBus</com.example.endpoint_._getReservation>
-    <com.example.api_._traveler>capp/EnterpriseServiceBus</com.example.api_._traveler>
-    <com.example.endpoint_._getProfile>capp/EnterpriseServiceBus</com.example.endpoint_._getProfile>
   </properties>
   <dependencies>
     <dependency>
       <groupId>com.example.api</groupId>
       <artifactId>email</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.api</groupId>
+      <artifactId>hotel</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
@@ -43,6 +62,18 @@
     </dependency>
     <dependency>
       <groupId>com.example.endpoint</groupId>
+      <artifactId>addRooms</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>deleteHotelRoom</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
       <artifactId>deleteProfile</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
@@ -55,6 +86,24 @@
     </dependency>
     <dependency>
       <groupId>com.example.endpoint</groupId>
+      <artifactId>getHotelImages</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>getHotelRoom</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>getHotelRooms</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
       <artifactId>getProfile</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
@@ -62,6 +111,36 @@
     <dependency>
       <groupId>com.example.endpoint</groupId>
       <artifactId>getReservation</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>hotelImageDelete</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>hotelLogin</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>hotelProfile</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>hotelSignup</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>hotelUpdate</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
@@ -86,6 +165,18 @@
     <dependency>
       <groupId>com.example.endpoint</groupId>
       <artifactId>updateProfile</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>updateRooms</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>uploadImages</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>

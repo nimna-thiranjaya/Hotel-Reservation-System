@@ -34,8 +34,8 @@ function App() {
 
               <Route path ='/aa' component={Signup} />
               <Route path ='/login' component={Login} />
-              <Route path ='/profile' component={Profile} />
-              <Route path ='/update' component={UpdateProfile} />
+              <Route path ='/profileD' component={Profile} />
+              <Route path ='/updateD' component={UpdateProfile} />
               <Route path ='/addRoom' component={AddRooms} />
               <Route path ='/updateRoom/:id' component={RoomUpdate} />
 

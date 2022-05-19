@@ -32,7 +32,7 @@ export default class RoomUpdate extends Component {
                  }
             } 
             const id = this.props.match.params.id;
-            axios.get(`http://localhost:8000/hotel/getRoom/${id}`,config).then(res =>{
+            axios.get(`http://localhost:8280/hotel/getHotelRoom/${id}`,config).then(res =>{
                 if(res.data.status){
                 this.setState({
                     type : res.data.room.type,
@@ -75,7 +75,7 @@ export default class RoomUpdate extends Component {
         } 
         const id = this.props.match.params.id;
 
-        axios.put(`http://localhost:8000/hotel/roomUpdate/${id}`,Updateroom, config).then((res)=>{
+        axios.put(`http://localhost:8280/hotel/updateRooms/${id}`,Updateroom, config).then((res)=>{
             if(res.data){
                 this.setState({
                     type:"",
@@ -85,7 +85,7 @@ export default class RoomUpdate extends Component {
                     details:""
                 })
                 alert("update success")
-                window.location.href="/profile"
+                window.location.href="/profileD"
            }
         }).catch((e)=>{
             console.log(e)
