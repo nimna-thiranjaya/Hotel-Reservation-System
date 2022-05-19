@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Login from './components/NT_Components/traveler/Login';
-import Home from './components/Home';
 import Profile from './components/NT_Components/traveler/Profile';
 import TravelerRegister from './components/NT_Components/traveler/TravelerRegister';
 import TravelerUpdate from './components/NT_Components/traveler/TravelerUpdate';
@@ -18,8 +17,7 @@ function App() {
         <Router>
             <Switch>
               <Route path ='/' component={Login} exact/>
-              <Route path ='/home' component={Home} />
-              <Route path ='/register' component={TravelerRegister} />
+                <Route path ='/register' component={TravelerRegister} />
               <Route path ='/profile' component={Profile} />
               <Route path ='/update' component={TravelerUpdate} />
               <Route path ='/payment/:id' component={Payment} />

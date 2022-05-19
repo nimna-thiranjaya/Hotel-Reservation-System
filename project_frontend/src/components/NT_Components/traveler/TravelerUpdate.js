@@ -50,7 +50,7 @@ export default class TravelerUpdate extends Component {
                     Authorization: localStorage.getItem("Authorization")
                  }
             }   
-        await axios.get("http://localhost:8000/traveler/profile", config).then((res)=>{
+        await axios.get(" http://localhost:8280/traveler/getProfile", config).then((res)=>{
             // console.log(res.data)
             if(res.data.success){
                 this.setState({
@@ -108,7 +108,7 @@ export default class TravelerUpdate extends Component {
              }
         } 
 
-        axios.put("http://localhost:8000/traveler/update",Updatetraveler, config).then((res)=>{
+        axios.put(" http://localhost:8280/traveler/updateProfile",Updatetraveler, config).then((res)=>{
             if(res.data){
                 this.setState({
                     fname : "",

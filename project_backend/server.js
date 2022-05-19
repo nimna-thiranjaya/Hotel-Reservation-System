@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 
+
 const URL = process.env.MONGODB_URL;
 process.env.SUPPRESS_NO_CONFIG_WARNING = 'y';
 
@@ -29,8 +30,7 @@ mongoose.connect(URL, {
 });
 
 const travelerRouter = require("./routes/NT_Routes/traveler")
-const paymentRouter = require("./routes/NT_Routes/paymentConfirmation")
-const paymentGatewayRouter = require("./routes/NT_Routes/paymentGateway")
+const paymentdetailRouter = require("./routes/NT_Routes/paymentdetails")
 
 const connection = mongoose.connection;
 connection.once("open", () => {
@@ -38,8 +38,7 @@ console.log("Mongodb connection success!!!");
 })
 
 app.use("/traveler",travelerRouter);
-app.use("/payment",paymentRouter);
-app.use("/paymentGate",paymentGatewayRouter);
+app.use("/paymentdetails",paymentdetailRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`)

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/payment" name="payment" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/doPayment">
+        <inSequence>
+            <log>
+                <property name="message " value="Payment Service Started.......!"/>
+            </log>
+            <send>
+                <endpoint key="doPayment"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/getReservation/{id}">
+        <inSequence>
+            <log>
+                <property name="message" value="Get Reservation details service started......!"/>
+            </log>
+            <send>
+                <endpoint key="getReservation"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

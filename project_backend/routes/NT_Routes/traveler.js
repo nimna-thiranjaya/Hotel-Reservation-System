@@ -58,6 +58,8 @@ router.post('/login', async (req, res) => {
 
 //Traveler profile
 router.get("/profile", auth, async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
+
     try {
       res.status(201)
       res.send({ success: "User fetched", traveler1: req.traveler1});

@@ -40,7 +40,7 @@ function TravelerRegister(){
 
         console.log(traveler)
         if(password === cpassword){
-            axios.post("http://localhost:8000/traveler/register",traveler).then((res)=>{
+            axios.post("http://localhost:8280/traveler/regTraveler",traveler).then((res)=>{
                 if(res.data){
                     alert("Traveler register successful")
                     window.location.href = '/';

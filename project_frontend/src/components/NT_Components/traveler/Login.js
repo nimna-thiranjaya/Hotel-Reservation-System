@@ -23,7 +23,7 @@ export default class Login extends Component {
   
         
     
-        await axios.post("http://localhost:8000/traveler/login",userData)
+        await axios.post("http://localhost:8280/traveler/travelerLogin",userData)
         .then((res) => {
           this.setState({
             token: res.data.token

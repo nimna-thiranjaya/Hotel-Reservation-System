@@ -29,7 +29,7 @@ export default class Profile extends Component {
                     Authorization: localStorage.getItem("Authorization")
                  }
             }   
-        await axios.get("http://localhost:8000/traveler/profile", config).then((res)=>{
+        await axios.get("http://localhost:8280/traveler/getProfile", config).then((res)=>{
             console.log(res.data)
             if(res.data.success){
                 this.setState({
@@ -77,7 +77,7 @@ export default class Profile extends Component {
         }
 
         if (window.confirm('Are you sure you wish to delete this Account?')) {
-            await axios.delete('http://localhost:8000/traveler/delete', config).then((res) => {
+            await axios.delete('http://localhost:8280/traveler/deleteProfile', config).then((res) => {
               localStorage.removeItem('Authorization')
               alert("Your Account delete successfull")
               window.location="/"
@@ -89,24 +89,6 @@ export default class Profile extends Component {
     }
   render() {
     return (
-        // <div>
-        //     <h2>Traveler Profile</h2>
-        //     <div className='container'>
-        //         <img src={this.state.imageUrl} alt="Profile_Picture" width="170" height="170"/>  <br/><br/>
-        //         <p>Fname : {this.state.fname}</p>
-        //         <p>Lname : {this.state.lname}</p>
-        //         <p>Email : {this.state.email}</p>
-        //         <p>NIC : {this.state.nic}</p>
-        //         <p>phone No : {this.state.pno}</p>
-        //         <p>DOB : {this.state.dob}</p>
-        //         <p>Nationality : {this.state.nationality}</p>
-        //         <p>Gender : {this.state.gender}</p>
-        //         <p>Country : {this.state.country}</p><br/>
-        //     </div>
-        //         <button type="button" class="btn btn-primary" onClick={this.onUpdate}>Update Profile</button> &nbsp;
-        //         <button type="button" class="btn btn-primary" onClick={this.adminLogout} >Log Out</button> &nbsp;
-        //         <button type="button" class="btn btn-danger" onClick={this.onDelete}>Delete Profile</button>
-        // </div>
 
         <div>
             <Header/>
