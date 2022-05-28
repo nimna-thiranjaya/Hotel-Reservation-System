@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/email" name="email" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/sendMail">
+        <inSequence>
+            <log>
+                <property name="message" value="Email Service Started.....!"/>
+            </log>
+            <send>
+                <endpoint key="sendMail"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

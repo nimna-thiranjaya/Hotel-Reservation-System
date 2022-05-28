@@ -1,7 +1,6 @@
 import React from "react";
 import { Component } from 'react';
 import axios from "axios";
-//import Images from './images';
 import image1 from "../../asserts/DH_Asserts/ss.jpg"
 import FileBase64 from 'react-file-base64';
 import image11 from "../../asserts/DH_Asserts/png-transparentl.png"
@@ -44,7 +43,7 @@ export default class Profile extends Component {
         if(data.image === undefined){
             alert("image is undefined");
         }else(
-        axios.post(`http://localhost:8000/hotel/upload`,data,config)
+        axios.post(`http://localhost:8280/hotel/uploadImages`,data,config)
         .then(res=>{
                 alert("image uploaded")
                 window.location.reload();
@@ -63,7 +62,7 @@ export default class Profile extends Component {
     };
 
     if (window.confirm('Are you sure you wish to remove this room?')) {
-        axios.delete(`http://localhost:8000/hotel/roomDelete/${id}`,config).then((res)=>{
+        axios.delete(`http://localhost:8280/hotel/deleteHotelroom/${id}`,config).then((res)=>{
                 //alert("Delete successful");
                 alert('Removed successfully');
                 window.location.reload();
@@ -84,7 +83,7 @@ export default class Profile extends Component {
       };
 
     if (window.confirm('Are you sure you wish to remove this image?')) {
-        axios.delete(`http://localhost:8000/hotel/deleteImg/${id}`,config).then((res)=>{
+        axios.delete(`http://localhost:8280/hotel/hotelImageDelete/${id}`,config).then((res)=>{
                 //alert("Delete successful");
                 alert('Removed successfully');
                 window.location.reload();
@@ -103,7 +102,7 @@ export default class Profile extends Component {
       },
     };
 
-  axios.get(`http://localhost:8000/hotel/displayRooms`,config).then(res =>{
+  axios.get(`http://localhost:8280/hotel/getHotelRooms`,config).then(res =>{
   if(res.data.success){
           this.setState({
               rooms:res.data.rooms
@@ -122,7 +121,7 @@ export default class Profile extends Component {
       },
     };
 
-  axios.get(`http://localhost:8000/hotel/profile`,config).then(res =>{
+  axios.get(`http://localhost:8280/hotel/hotelProfile`,config).then(res =>{
   if(res.data.success){
           this.setState({
               hotel:res.data.hotel,
@@ -141,7 +140,7 @@ export default class Profile extends Component {
       },
     };
 
-  axios.get(`http://localhost:8000/hotel/displayImgs`,config).then(res =>{
+  axios.get(`http://localhost:8280/hotel/getHotelImages`,config).then(res =>{
   if(res.data.success){
           this.setState({
               images:res.data.images
@@ -162,7 +161,6 @@ componentDidMount(){
 
     render() {
         const {hname,details,address, phone, email, image } = this.state.hotel;
-        const images = this.state.images;
 
         return (
              
@@ -262,8 +260,11 @@ componentDidMount(){
                 </tr>
               </tbody>
             </table>
-            <a href = "/update">
+            <a href = "/updateD">
             <button style={{marginLeft:"90%"}} type="button" class="btn btn-primary">Update Profile</button></a>
+
+      
+      
 
           </div>
         </div>

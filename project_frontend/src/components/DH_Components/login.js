@@ -26,13 +26,14 @@ export default class Login extends Component {
    
         
     
-        await axios.post("http://localhost:8000/hotel/login",userData)
+        await axios.post("http://localhost:8280/hotel/hotelLogin",userData)
         .then((res) => {
           this.setState({
             token: res.data.token
           })
+
           localStorage.setItem("Authorization", res.data.token)
-          window.location = "/profile"
+          window.location = "/profileD"
           alert('loging successfull');
         })
         .catch((err) => {
@@ -53,28 +54,7 @@ export default class Login extends Component {
    
       render() {
         return (
-          
-               
-              //  <div>
-  
-              //         <form onSubmit={this.userLoginSubmit} name="form"> 
-  
-              //           <label  >Student ID</label>
-              //           <input  type="text" name="username" placeholder="Enter your email" onChange={e => this.setState({ email: e.target.value })} required/> <br/><br/> 
-              //           <label  >Password</label> 
-              //           <input  type="password" name="password" placeholder="Enter your Password" onChange={e => this.setState({ pwd: e.target.value })} required/> 
-              //           <br/>   
-                          
-              //           <button type="submit" >Login</button> 
-                        
-                          
-              //         </form>
-               
-              //   <center><label >Not Registered?</label> </center>
-              //   <center><li><a href="/signup" >Sign Up</a></li></center>
-                
-              
-              //   </div>
+    
 
 <div>
              
@@ -98,7 +78,7 @@ export default class Login extends Component {
                     <span className="h1 fw-bold mb-0">DNR RESERVATIONS</span>
                   </div>
 
-                  <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing:"1px"}}>Sign into your account</h5>
+                  <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing:"1px"}}>Hotel Sign In</h5>
 
                   <div class="form-floating mb-3">
                 <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com" onChange={e => this.setState({ email: e.target.value })} required/>

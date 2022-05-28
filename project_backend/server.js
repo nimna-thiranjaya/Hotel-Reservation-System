@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 
+
 const URL = process.env.MONGODB_URL;
 process.env.SUPPRESS_NO_CONFIG_WARNING = 'y';
 
@@ -28,19 +29,29 @@ mongoose.connect(URL, {
     //useFindAndModify: false
 });
 
+
+
 const connection = mongoose.connection;
 connection.once("open", () => {
 console.log("Mongodb connection success!!!");
-
 })
 
+//Traveler routs
+const travelerRouter = require("./routes/NT_Routes/traveler")
+app.use("/traveler",travelerRouter);
 
-// @import routes
+//payment route
+const paymentdetailRouter = require("./routes/NT_Routes/paymentdetails")
+app.use("/paymentdetails",paymentdetailRouter);
+
+//Hotel routes
 const hotelRouter = require("./routes/DH_routes/hotels");
-
-
-// rotues
 app.use("/hotel",hotelRouter);
+
+//reservation rout
+const bookingRouter = require("./routes/RS_Routes/booking");
+app.use("/booking", bookingRouter)
+
 
 
 

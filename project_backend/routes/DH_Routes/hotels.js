@@ -46,7 +46,6 @@ router.post("/signup", async (req, res) => {
       res
         .status(201)
         .send({ status: "hotel Created", hotel: newhotel, token: token });
-
     } catch (error) {
       console.log(error.message);
       res.status(500).send({error: error.message});
@@ -156,7 +155,6 @@ router.post("/signup", async (req, res) => {
  
     try {
       const hotl = await hotel.findById(req.htl._id)
-
       if (!hotl) {
         throw new Error('There is no hotel..!!!')
       }
