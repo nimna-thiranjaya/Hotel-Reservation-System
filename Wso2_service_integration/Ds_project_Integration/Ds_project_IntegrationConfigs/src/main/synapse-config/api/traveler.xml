@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/traveler" name="traveler" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/regTraveler">
+        <inSequence>
+            <log>
+                <property name="message" value="Traveler Service started.......!"/>
+            </log>
+            <send>
+                <endpoint key="regTraveler"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/travelerLogin">
+        <inSequence>
+            <log>
+                <property name="message" value="Traveler login started......!"/>
+            </log>
+            <send>
+                <endpoint key="travelerLogin"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/getProfile">
+        <inSequence>
+            <log>
+                <property name="message " value="Traveler Profile service started.......!"/>
+            </log>
+            <send>
+                <endpoint key="getProfile"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="PUT" url-mapping="/updateProfile">
+        <inSequence>
+            <log>
+                <property name="message " value="traveler profile update service started .......!"/>
+            </log>
+            <send>
+                <endpoint key="updateProfile"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/deleteProfile">
+        <inSequence>
+            <log>
+                <property name="message " value="Traveler Profile Delete service started.....!"/>
+            </log>
+            <send>
+                <endpoint key="deleteProfile"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
