@@ -45,7 +45,12 @@ const reservationSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,     
       ref: "traveler"
 
-      }
+      },
+
+      PaymentStatus: {
+        type: String,
+        //required: true
+      },
     
     
 });

@@ -149,5 +149,3 @@ return hotel1;
 const hotel = mongoose.model("hotels", hotelSchema);
  
 module.exports = hotel;
- 
-

@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
+import Header from '../Layouts/Header';
+import image from "../../asserts/DH_Asserts/rer.jpg"
 
 
 export default class ShowAmount extends Component {
@@ -17,7 +19,7 @@ export default class ShowAmount extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
       
-        axios.get(`http://localhost:8000/booking/reservations/${id}`).then((res)=>{
+        axios.get(`http://localhost:8280/reservation/getSpecificResevation/${id}`).then((res)=>{
           console.log(res.data);
 
           if (res.data.status){
@@ -39,61 +41,98 @@ export default class ShowAmount extends Component {
 
   render() {
 
-    const{hname,type,size,CheckinDate,nightsCount,amount} = this.state.reservationDelails;
+    const{_id,hname,type,size,CheckinDate,nightsCount,amount} = this.state.reservationDelails;
     return (
+
+<div>
+      <Header/>
+
       <div>
-          <div className="pt-0" align="center" background color="red">
-            <div className="shadow col-md-5 mt-10 mx-auto" >
-
-      <div style = {{marginTop:'20px'}} className="container-sm" >
-
-      <div className="card-header py-3">
-              <h1 className="m-0 font-weight-bold text-dark" id="rs">Checkout</h1><br/>
-  
-    </div>
-           
-      <hr/>
-      <dl className="row">
              
-        <dt className="col-sm-3" align ="center" >Hotel Name</dt>
-        <dd className ="col-sm-9" align ="left" >{hname}</dd>
-        <br/>
+             <section className="vh-200" style={{backgroundColor: "#D8BFD8"}}>
+               <div className="container py-5 h-">
+                 <div className="row d-flex justify-content-center align-items-center h-100">
+                   <div className="col col-xl-10">
+                     <div className="card" style={{borderRadius: "1rem", marginBottom:"1rem"}}>
+                       <div className="row g-0">
+                         <div className="col-md-6 col-lg-5 d-none d-md-block">
+                           <img src={image}
+                             alt="login form" className="img-fluid" style={{borderRadius: "1rem 0 0 1rem" }}/>
+                         </div>
+                         <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                           <div className="card-body p-4 p-lg-5 text-black">
+             
+                             <form  name="form">
+             
+                               <div className="d-flex align-items-center mb-3 pb-1">
+                                 <i className="fas fa-cubes fa-2x me-3" style={{color: "#ff6219"}}></i>
+                                 <span className="h1 fw-bold mb-0">Checkout</span>
+                               </div>
+             
+                              
+             
+                               <hr/>
+                                    <dl className="row">
+                                          
+                                      <dt className="col-sm-4"  ><h5>Hotel Name:</h5></dt>
+                                      <dd className ="col-sm-5" align ="left" ><h5>{hname}</h5></dd>
+                                      <br/>
 
-        <dt className="col-sm-3" align ="center">Room Type</dt>
-        <dd className ="col-sm-9" align="left">{type}</dd>
-        <br/>
+                                      <dt className="col-sm-4" ><h5>Room Type:</h5></dt>
+                                      <dd className ="col-sm-5" align="left"><h5>{type}</h5></dd>
+                                      <br/>
 
-        <dt className="col-sm-3" align ="center">Room Size</dt>
-        <dd className ="col-sm-9" align="left">{size}</dd>
-        <br/>
+                                      <dt className="col-sm-4" ><h5>Room Size:</h5></dt>
+                                      <dd className ="col-sm-5" align="left"><h5>{size}</h5></dd>
+                                      <br/>
 
-        <dt className="col-sm-3" align ="center"> Check in Date</dt>
-        <dd className ="col-sm-9" align="left">{CheckinDate}</dd>
-        <br/>
+                                      <dt className="col-sm-4" ><h5> Check in Date:</h5></dt>
+                                      <dd className ="col-sm-5" align="left"><h5>{CheckinDate}</h5></dd>
+                                      <br/>
 
-        <dt className="col-sm-3" align ="center"> Nights Count</dt>
-        <dd className ="col-sm-9" align="left">{nightsCount}</dd>
-        <br/>
-        <br/>
+                                      <dt className="col-sm-4" ><h5> Nights Count:</h5></dt>
+                                      <dd className ="col-sm-5" align="left"><h5>{nightsCount}</h5></dd>
+                                      <br/>
+                                      <br/>
 
-        <dt className="col-sm-3"><h2> Total Amount</h2></dt>
-        <dd className ="col-sm-9" align="left"> <h2>{amount}</h2></dd>
-        
-        </dl>
-        <br/><br/>
+                                      <dt className="col-sm-4"><h5> Total Amount:</h5></dt>
+                                      <dd className ="col-sm-5" align="left"> <h4>LKR {amount}.00</h4></dd>
+                                      
+                                      </dl>
+                                      <br/>
+
+             
+                                      <div >
+                               <a href={`/payment/${_id}`}><button type="button" style={{width:"15rem"}} class="btn btn-success">Pay Now</button> </a>
+                                      </div>
+                                      <br/>
+                                      <a href='/show'>
+                                      <button type="button" class="btn btn-info">Back</button>
+                                      </a>
+             
+                
+                              
+             
+                             </form>
+             
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </section>
+             
+                        
+             </div>
 
 
-        <div>
-         <a><button type="button" class="btn btn-warning">Pay Now</button> </a>
-      </div>
-      <br/>
 
-      </div>
-      </div>
-      </div>
       
-
       </div>
+
+      
     )
   }
 }

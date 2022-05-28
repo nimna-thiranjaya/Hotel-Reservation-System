@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="traveler" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/traveler.xml</file>
+    </artifact>
+    <artifact name="regTraveler" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/regTraveler.xml</file>
+    </artifact>
+    <artifact name="email" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/email.xml</file>
+    </artifact>
+    <artifact name="sendMail" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/sendMail.xml</file>
+    </artifact>
+    <artifact name="payment" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/payment.xml</file>
+    </artifact>
+    <artifact name="doPayment" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/doPayment.xml</file>
+    </artifact>
+    <artifact name="travelerLogin" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/travelerLogin.xml</file>
+    </artifact>
+    <artifact name="getProfile" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getProfile.xml</file>
+    </artifact>
+    <artifact name="updateProfile" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/updateProfile.xml</file>
+    </artifact>
+    <artifact name="deleteProfile" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/deleteProfile.xml</file>
+    </artifact>
+    <artifact name="getReservation" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getReservation.xml</file>
+    </artifact>
+    <artifact name="hotel" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/hotel.xml</file>
+    </artifact>
+    <artifact name="hotelSignup" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/hotelSignup.xml</file>
+    </artifact>
+    <artifact name="hotelLogin" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/hotelLogin.xml</file>
+    </artifact>
+    <artifact name="hotelProfile" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/hotelProfile.xml</file>
+    </artifact>
+    <artifact name="getHotelImages" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getHotelImages.xml</file>
+    </artifact>
+    <artifact name="hotelImageDelete" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/hotelImageDelete.xml</file>
+    </artifact>
+    <artifact name="hotelUpdate" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/hotelUpdate.xml</file>
+    </artifact>
+    <artifact name="getHotelRooms" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getHotelRooms.xml</file>
+    </artifact>
+    <artifact name="updateRooms" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/updateRooms.xml</file>
+    </artifact>
+    <artifact name="getHotelRoom" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getHotelRoom.xml</file>
+    </artifact>
+    <artifact name="deleteHotelRoom" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/deleteHotelRoom.xml</file>
+    </artifact>
+    <artifact name="addRooms" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/addRooms.xml</file>
+    </artifact>
+    <artifact name="uploadImages" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/uploadImages.xml</file>
+    </artifact>
+    <artifact name="reservation" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/reservation.xml</file>
+    </artifact>
+    <artifact name="getHotels" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getHotels.xml</file>
+    </artifact>
+    <artifact name="getSpecificHotel" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getSpecificHotel.xml</file>
+    </artifact>
+    <artifact name="getSpecificRoom" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getSpecificRoom.xml</file>
+    </artifact>
+    <artifact name="addReservation" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/addReservation.xml</file>
+    </artifact>
+    <artifact name="getSpecificTraveler" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getSpecificTraveler.xml</file>
+    </artifact>
+    <artifact name="getSpecificResevation" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/getSpecificResevation.xml</file>
+    </artifact>
+    <artifact name="deleteResevation" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/deleteResevation.xml</file>
+    </artifact>
+</artifacts>
