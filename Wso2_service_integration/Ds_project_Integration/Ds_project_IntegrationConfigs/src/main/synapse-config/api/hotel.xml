@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/hotel" name="hotel" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/hotelSignup">
+        <inSequence>
+            <log>
+                <property name="message " value="Hotel sign up service started .....!"/>
+            </log>
+            <send>
+                <endpoint key="hotelSignup"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/hotelLogin">
+        <inSequence>
+            <log>
+                <property name="message " value="Hotel login servise started......!"/>
+            </log>
+            <send>
+                <endpoint key="hotelLogin"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/hotelProfile">
+        <inSequence>
+            <log>
+                <property name="message " value="Hotel Getprofile service started....!"/>
+            </log>
+            <send>
+                <endpoint key="hotelProfile"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/getHotelImages">
+        <inSequence>
+            <log>
+                <property name="message " value="getHotel images service started.....!"/>
+            </log>
+            <send>
+                <endpoint key="getHotelImages"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/hotelImageDelete/{id}">
+        <inSequence>
+            <log>
+                <property name="message " value="hotel image delete service stared...!"/>
+            </log>
+            <send>
+                <endpoint key="hotelImageDelete"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="PUT" url-mapping="/hotelUpdate">
+        <inSequence>
+            <log>
+                <property name="message " value="Hotel update servise satarted"/>
+            </log>
+            <send>
+                <endpoint key="hotelUpdate"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/getHotelRooms">
+        <inSequence>
+            <log>
+                <property name="message" value="Get Hotel rooms service started"/>
+            </log>
+            <send>
+                <endpoint key="getHotelRooms"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="PUT" uri-template="/updateRooms/{id}">
+        <inSequence>
+            <log>
+                <property name="message " value="Hotel Room update service started .......!"/>
+            </log>
+            <send>
+                <endpoint key="updateRooms"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/getHotelRoom/{id}">
+        <inSequence>
+            <log>
+                <property name="message " value="get hotel rooms servise started...! "/>
+            </log>
+            <send>
+                <endpoint key="getHotelRoom"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/deleteHotelroom/{id}">
+        <inSequence>
+            <log>
+                <property name="message" value="Delete hotel room service started"/>
+            </log>
+            <send>
+                <endpoint key="deleteHotelRoom"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/addRooms">
+        <inSequence>
+            <log>
+                <property name="message" value="image upload servise started .......!"/>
+            </log>
+            <send>
+                <endpoint key="addRooms"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/uploadImages">
+        <inSequence>
+            <log>
+                <property name="message " value="image upload servise started.........!"/>
+            </log>
+            <send>
+                <endpoint key="uploadImages"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
