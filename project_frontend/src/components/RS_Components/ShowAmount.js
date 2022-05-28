@@ -41,6 +41,16 @@ export default class ShowAmount extends Component {
 
     const{_id,hname,type,size,CheckinDate,nightsCount,amount} = this.state.reservationDelails;
     return (
+
+      <div className="pt-0" align="center" background color="red">
+            <div className="shadow col-md-11 mt-8 mx-auto" >
+              
+      
+  
+    </div>
+
+      <div className="container-sm" >
+       
       <div>
           <div className="pt-0" align="center" background color="red">
             <div className="shadow col-md-5 mt-10 mx-auto" >
@@ -49,8 +59,9 @@ export default class ShowAmount extends Component {
 
       <div className="card-header py-3">
               <h1 className="m-0 font-weight-bold text-dark" id="rs">Checkout</h1><br/>
-  
+              <div className="card-bodyr" id="cardcol">
     </div>
+    
            
       <hr/>
       <dl className="row">
@@ -76,8 +87,8 @@ export default class ShowAmount extends Component {
         <br/>
         <br/>
 
-        <dt className="col-sm-3"><h2> Total Amount</h2></dt>
-        <dd className ="col-sm-9" align="left"> <h2>{amount}</h2></dd>
+        <dt className="col-sm-3"><h3> Total Amount</h3></dt>
+        <dd className ="col-sm-9" align="left"> <h3>{amount}</h3></dd>
         
         </dl>
         <br/><br/>
@@ -87,13 +98,13 @@ export default class ShowAmount extends Component {
          <a href={`/payment/${_id}`}><button type="button" class="btn btn-warning">Pay Now</button> </a>
       </div>
       <br/>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>   </div>   </div>
 
-      </div>
-      </div>
-      </div>
       
-
-      </div>
     )
   }
 }

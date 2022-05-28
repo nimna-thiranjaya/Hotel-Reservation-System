@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {  FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
+import Header from '../Layouts/Header';
+
+
 
 
 
@@ -62,8 +65,8 @@ onSubmit = id2 => e =>{
 
   componentDidMount(){
     const _id = this.props.match.params._id;
-  
-    axios.get(`http://localhost:8280/reservation/getHotels/${_id}`).then((res)=>{
+    
+    axios.get(`http://localhost:8280/reservation/getSpecificHotel/${_id}`).then((res)=>{
       console.log(res.data);
       if (res.data.success){
         this.setState({
@@ -119,7 +122,9 @@ onSubmit = id2 => e =>{
     
 
     return(
-      
+      <div>
+            <Header/>
+          
 
       <div className="pt-0" align="center" background color="red">
             <div className="shadow col-md-9 mt-10 mx-auto" >
@@ -175,7 +180,7 @@ onSubmit = id2 => e =>{
           </div>
          </div>
          
-         <div className="wrapper" align="left">
+         <div className="wrapperr" >
      <div className="row" style={{ paddingTop: 1 , paddingBottom: 1, alignContent :'center'  }} >
        
         {this.state.images.map((item) => (
@@ -195,8 +200,13 @@ onSubmit = id2 => e =>{
       </div>
       <br/><br/><br/><br/>
 
-      <div>
-      
+      <div>           
+            <div class="btn pull-right">
+                   <a href='/show'>
+                   <button type="button" style={{width:"15rem"}} class="btn btn-outline-warning">My Reservations</button>
+                   </a>
+                   <br/><br/>
+            </div>
 
                 <table class="table table-bordered border-primary">
             <thead class="thead-dark">
@@ -241,7 +251,9 @@ onSubmit = id2 => e =>{
                     onChange={this.handleInputChange} />
 
                 <br/>
-                <button type="submit" style={{width:"10rem"}}   class="btn btn-success btn-rounded">I'll reserve</button>
+                <button type="submit" style={{width:"15rem", align:"center"}}   class="btn btn-success btn-rounded">I'll reserve</button>
+                    <br/><br/>
+                   
                   </form>
                   </td>
                 {/* <td>{size}</td>
@@ -252,6 +264,7 @@ onSubmit = id2 => e =>{
               )}
             </tbody>
           </table>
+          
         
       </div>
           {/* <div class="col-md-12 bg-light text-right">
@@ -261,6 +274,7 @@ onSubmit = id2 => e =>{
         
 
         
+      </div>
       </div>
       </div>
       </div>

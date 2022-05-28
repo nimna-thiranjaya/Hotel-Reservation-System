@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Header from '../Layouts/Header';
 
 
 
@@ -55,6 +56,24 @@ onDelete = (id) => {
   render() {
     return (
       <div>
+         
+            <Header/>
+        <br/>
+
+<div className="pt-0" align="center" background color="red">
+            <div className="shadow col-md-11 mt-8 mx-auto" >
+              
+              <div className="card-header py-3">
+              <h1 className="m-0 font-weight-bold text-dark" id="rs"> My Reservations </h1><br/>
+  
+    </div>
+
+      <div className="container-sm" >
+       
+  
+       <div className="row">
+         
+         <div className="card-bodyr" id="cardcol">
 
 <table className="table table-hover" style={{marginTop:'40px', background: "#F0FFFF" }} >
         <thead>
@@ -98,8 +117,16 @@ onDelete = (id) => {
         </tbody>
         
    </table>
+   </div>
+   
+   </div>
+   <br/>
+   </div>
+   </div>
+   </div>
+   </div>
 
-      </div>
+      
     )
   }
 }

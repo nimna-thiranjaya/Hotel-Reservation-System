@@ -27,7 +27,9 @@ router.route('/displayhotel').get((req,res) =>{
  
  //get specific Hotel
  router.get("/hotels/:Id", async (req, res) => {
+   
      const Id= req.params.Id
+     
     try {
          const hotl = await hotel.findById(Id)
       if (!hotl) {
