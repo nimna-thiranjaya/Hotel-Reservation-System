@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Header from '../Layouts/Header';
 
 
 
@@ -55,6 +56,24 @@ onDelete = (id) => {
   render() {
     return (
       <div>
+         
+            <Header/>
+        <br/>
+
+<div className="pt-0" align="center" background color="red">
+            <div className="shadow col-md-11 mt-8 mx-auto" >
+              
+              <div className="card-header py-3">
+              <h1 className="m-0 font-weight-bold text-dark" id="rs"> My Reservations </h1><br/>
+  
+    </div>
+
+      <div className="container-sm" >
+       
+  
+       <div className="row">
+         
+         <div className="card-bodyr" id="cardcol">
 
 <table className="table table-hover" style={{marginTop:'40px', background: "#F0FFFF" }} >
         <thead>
@@ -80,14 +99,16 @@ onDelete = (id) => {
                 <td>{rese.size}</td>
                 <td>{rese.CheckinDate}</td>
                 <td>{rese.nightsCount}</td>
-                <td>{rese.amount}</td>
+                <td>LKR {rese.amount}.00</td>
 
                 <td>
                 
-                    <button type="submit" class="btn btn-danger" onClick={() =>this.onDelete(rese._id)} >Delete</button> 
+                    <button type="submit" class="btn btn-warning" onClick={() =>this.onDelete(rese._id)} >Cancel</button> 
 
                   &nbsp;
-                    <a href={`/checkout/${rese._id}`}> <button type="submit" style={{width:"10rem"}}   class="btn btn-success btn-rounded">Pay Now</button> </a>
+                    <a href={`/checkout/${rese._id}`}> 
+                    <button type="submit" style={{width:"10rem"}}   class="btn btn-success btn-rounded">Pay Now</button> 
+                    </a>
                   
                 </td>
               </tr>
@@ -98,8 +119,16 @@ onDelete = (id) => {
         </tbody>
         
    </table>
+   </div>
+   
+   </div>
+   <br/>
+   </div>
+   </div>
+   </div>
+   </div>
 
-      </div>
+      
     )
   }
 }

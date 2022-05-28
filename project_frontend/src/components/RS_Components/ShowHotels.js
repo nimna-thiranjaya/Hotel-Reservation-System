@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Button from '@mui/material/Button';
+import Header from '../Layouts/Header';
 
 
 export default class ShowHotels extends Component {
@@ -34,22 +34,21 @@ export default class ShowHotels extends Component {
 
   render() {
     return (
+      <div>
+      <Header/>
       
+      <div className="backgroundR" style={{  backgroundImage: 'url(https://c.neh.tw/thumb/f/720/5104431798419456.jpg)'
+        }} >
 
-      <div style={{  backgroundImage: 'url(https://wallpapermemory.com/uploads/515/resort-background-hd-1920x1200-486717.jpg)', height: "100%", width: "100%"}}>
-
-<div className="pt-0" align="center" background color="red">
-            <div className="shadow col-md-11 mt- mx-auto"  id="cardcol">
-         
+      <div class="container-sm">
       
+    <div className="wrapperR">
       
-        
-    <div className="wrapper">
      <div className="row" style={{ paddingTop: 1 , paddingBottom: 1,  }} >
        
         {this.state.hotels.map((item) => (
             
-            <div className="card" style={{ borderRadius:"22px",width: "19rem" , marginRight: "1rem", colorRenderin: "20rem" , marginTop: "1rem"}}>
+            <div className="card" style={{ borderRadius:"22px",width: "19rem" , marginRight: "1rem", colorRenderin: "20rem" , marginTop: "1rem" ,  }}>
             <img className="card-img-top" src={item.image} alt="Card_image_cap" style={{ borderRadius:"27px", borderColor: "#000000", width: "", height: "12rem",marginTop: 15,marginRight:1,marginLeft:1}} />
             <div className="card-body">
               <h5 className="card-title">{item.hname}</h5>
@@ -68,11 +67,13 @@ export default class ShowHotels extends Component {
         ))}
       </div>
       </div>
-        
-        
-      
-      </div></div>
+         
       </div>
+      </div>
+      </div>
+      
+      
+      
       
     )
   }
