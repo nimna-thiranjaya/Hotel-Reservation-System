@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 import axios from 'axios';
 import { useState, useEffect } from 'react'
+import { FaAlignLeft } from 'react-icons/fa';
  function Header() {
     const [imageUrl, setimageUrl] = useState("")
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -12,6 +13,11 @@ import { useState, useEffect } from 'react'
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
+
+    const onredirect =() =>{
+      window.location.href='/show';
+    }
+
     const handleClose = () => {
       setAnchorEl(null);
     };
@@ -51,9 +57,11 @@ import { useState, useEffect } from 'react'
 
     return (
       <div>
-        <nav className="navbar navbar-dark" style={{"background-color":"#eae9ee"}}>
+        <nav className="navbar navbar-dark" style={{"background-color":"#060b26"}}>
             <div class="container-fluid">
-                <p>Sample image</p>
+                <h2 style={{color:"#FFFFFF" }}>DNR Reservations</h2>
+                <br/>
+                <br/> 
                 <Button
             id="fade-button"
             aria-controls={open ? 'fade-menu' : undefined}
@@ -77,6 +85,7 @@ import { useState, useEffect } from 'react'
       >
   
         <MenuItem onClick={redirectToProfile}>Profile</MenuItem>
+        <MenuItem onClick={onredirect}>My Reservations</MenuItem>
         <MenuItem onClick={logOut}>Logout</MenuItem>
       </Menu>
             </div>
