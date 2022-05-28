@@ -23,7 +23,7 @@ export default class ShowReservation extends Component {
                     Authorization: localStorage.getItem("Authorization")
                  }
             }   
-        await axios.get("http://localhost:8000/booking/myreservations", config).then((res)=>{
+        await axios.get("http://localhost:8280/reservation/getSpecificTraveler", config).then((res)=>{
             
             if(res.data.status){
                 this.setState({
@@ -44,7 +44,7 @@ export default class ShowReservation extends Component {
 
 onDelete = (id) => {
     if (window.confirm('Are you sure you wish to remove this reservation?')) {
-    axios.delete(`http://localhost:8000/booking/delete/${id}`).then((res) =>{
+    axios.delete(`http://localhost:8280/reservation/deleteResevation/${id}`).then((res) =>{
         alert("Deleted Successfully");
         this.getReservationDetails();
     })

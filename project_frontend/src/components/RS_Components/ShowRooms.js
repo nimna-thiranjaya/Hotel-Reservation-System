@@ -48,7 +48,7 @@ onSubmit = id2 => e =>{
             nightsCount};
     
 
-    axios.post(`http://localhost:8000/booking/reservation/${id1}/${id2}`,data ,config)
+    axios.post(`http://localhost:8280/reservation/addReservation/${id1}/${id2}`,data ,config)
     .then(res=>{
       console.log(config)
             alert("reservation successful")
@@ -63,7 +63,7 @@ onSubmit = id2 => e =>{
   componentDidMount(){
     const _id = this.props.match.params._id;
   
-    axios.get(`http://localhost:8000/booking/hotels/${_id}`).then((res)=>{
+    axios.get(`http://localhost:8280/reservation/getHotels/${_id}`).then((res)=>{
       console.log(res.data);
       if (res.data.success){
         this.setState({
@@ -132,7 +132,7 @@ onSubmit = id2 => e =>{
     </div>
            
       <div className="card-image waves-effect waves-block waves-light" align="center">
-          <img className="activator"  style={{ width: '350px', height: '180px%' }} src={image}/></div>
+          <img className="activator"  style={{ width: '350px', height: '180px%' }} src={image} alt="hotelImage"/></div>
 
       <hr/>
       <dl className="row">
@@ -181,7 +181,7 @@ onSubmit = id2 => e =>{
         {this.state.images.map((item) => (
             
             <div className="card"  style={{ borderRadius:"22px",width: "10rem",height:"10rem" , marginRight: "1rem", colorRenderin: "20rem" , marginTop: "1rem"}}>
-            <img className="card-img-top" src={item.image} alt="Card image cap"  style={{ borderRadius:"27px", borderColor: "#000000", height: "10rem",marginTop: 15,marginRight:1,marginLeft:1}}/>
+            <img className="card-img-top" src={item.image} alt="Card_image_cap"  style={{ borderRadius:"27px", borderColor: "#000000", height: "10rem",marginTop: 15,marginRight:1,marginLeft:1}}/>
            
            
             <div className="card-body" >
