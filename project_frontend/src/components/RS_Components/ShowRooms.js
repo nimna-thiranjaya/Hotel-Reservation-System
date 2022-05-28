@@ -248,6 +248,7 @@ onSubmit = id2 => e =>{
                 <br/>
                     <input type="number" className="form-control" name="nightsCount" placeholder="Nights Count" Required = "required"
                     value={this.setState.nightsCount }
+                    
                     onChange={this.handleInputChange} />
 
                 <br/>

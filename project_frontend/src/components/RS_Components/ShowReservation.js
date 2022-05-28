@@ -99,14 +99,16 @@ onDelete = (id) => {
                 <td>{rese.size}</td>
                 <td>{rese.CheckinDate}</td>
                 <td>{rese.nightsCount}</td>
-                <td>{rese.amount}</td>
+                <td>LKR {rese.amount}.00</td>
 
                 <td>
                 
-                    <button type="submit" class="btn btn-danger" onClick={() =>this.onDelete(rese._id)} >Delete</button> 
+                    <button type="submit" class="btn btn-warning" onClick={() =>this.onDelete(rese._id)} >Cancel</button> 
 
                   &nbsp;
-                    <a href={`/checkout/${rese._id}`}> <button type="submit" style={{width:"10rem"}}   class="btn btn-success btn-rounded">Pay Now</button> </a>
+                    <a href={`/checkout/${rese._id}`}> 
+                    <button type="submit" style={{width:"10rem"}}   class="btn btn-success btn-rounded">Pay Now</button> 
+                    </a>
                   
                 </td>
               </tr>
