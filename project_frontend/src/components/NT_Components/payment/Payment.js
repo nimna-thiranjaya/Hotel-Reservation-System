@@ -29,7 +29,7 @@ export default class Payment extends Component {
     const id = this.props.match.params.id;
     console.log(id)
     axios.get(`http://localhost:8280/payment/getReservation/${id}`).then((res)=>{
-            // console.log(res.data)
+            console.log(res.data)
             if(res.data.success){
                 this.setState({
                     hname : res.data.paymentDetails.hname,
@@ -54,7 +54,7 @@ export default class Payment extends Component {
              }
         }   
     axios.get("http://localhost:8280/traveler/getProfile", config).then((res)=>{
-        // console.log(res.data)
+        console.log(res.data)
         if(res.data.success){
             this.setState({
               sendemail: res.data.traveler1.email,
@@ -87,7 +87,7 @@ onSubmit=(e)=>{
       description:this.state.description
     }
     console.log(data)
-    axios.post(`http://localhost:8280/payment/doPayment`,data).then((res)=>{
+    axios.post("http://localhost:8280/payment/doPayment",data).then((res)=>{
       console.log(res.data)
     if(res.data){      
       
@@ -115,7 +115,7 @@ sendmail(){
     date : this.state.CheckinDate
   }
 
-  axios.post("http://localhost:8000/payment/sendemail",emaildata).then((res)=>{
+  axios.post("http://localhost:8280/email/sendMail",emaildata).then((res)=>{
     if(res.status){
       alert("email send successful")
     }

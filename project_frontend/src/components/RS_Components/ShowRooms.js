@@ -63,7 +63,7 @@ onSubmit = id2 => e =>{
   componentDidMount(){
     const _id = this.props.match.params._id;
   
-    axios.get(`http://localhost:8280/reservation/getHotels/${_id}`).then((res)=>{
+    axios.get(`http://localhost:8280/reservation/getSpecificHotel/${_id}`).then((res)=>{
       console.log(res.data);
       if (res.data.success){
         this.setState({
