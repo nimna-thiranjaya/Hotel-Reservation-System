@@ -92,7 +92,8 @@ router.route('/displayhotel').get((req,res) =>{
           CheckinDate: CheckinDate,
           CheckoutDate: CheckoutDate,
           nightsCount:nightsCount,
-          amount:amount
+          amount:amount,
+          PaymentStatus:"pending"
        
         };
    
@@ -116,7 +117,10 @@ router.route('/displayhotel').get((req,res) =>{
   router.get("/myreservations",auth, async (req, res) => {
  
     try {
-      const reservations = await reservation.find({tvId:req.traveler1._id})
+      const reservations = await reservation.find({tvId:req.traveler1._id, PaymentStatus:"pending"})
+    
+
+
  
      
       res
@@ -128,6 +132,8 @@ router.route('/displayhotel').get((req,res) =>{
       res.status(500).send({error: error.message});
     }
   });
+
+
    
  
   //get Checkout detailes eith specific id

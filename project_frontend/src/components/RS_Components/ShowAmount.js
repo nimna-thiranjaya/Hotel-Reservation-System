@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
+import Header from '../Layouts/Header';
 
 
 export default class ShowAmount extends Component {
@@ -42,6 +43,8 @@ export default class ShowAmount extends Component {
     const{_id,hname,type,size,CheckinDate,nightsCount,amount} = this.state.reservationDelails;
     return (
 
+<div>
+      <Header/>
       <div className="pt-0" align="center" background color="red">
             <div className="shadow col-md-11 mt-8 mx-auto" >
               
@@ -102,7 +105,7 @@ export default class ShowAmount extends Component {
       </div>
       </div>
       </div>
-      </div>   </div>   </div>
+      </div>   </div>   </div></div>
 
       
     )

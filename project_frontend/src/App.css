@@ -214,8 +214,9 @@ input:not(:placeholder-shown):invalid{
 
   background-color: #fff;
   color: #bcd0f7;
+  border-radius: 20px;
 
-  background: #1A233A;    
+      
 
 }
 
