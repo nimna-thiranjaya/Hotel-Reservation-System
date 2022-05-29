@@ -95,4 +95,7 @@
     <artifact name="deleteResevation" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/endpoints/deleteResevation.xml</file>
     </artifact>
+    <artifact name="paymentStatus" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/paymentStatus.xml</file>
+    </artifact>
 </artifacts>

@@ -28,4 +28,18 @@
         </outSequence>
         <faultSequence/>
     </resource>
+    <resource methods="POST" uri-template="/paymentStatus/{id}">
+        <inSequence>
+            <log>
+                <property name="message " value="Paymet status service satarted....!"/>
+            </log>
+            <send>
+                <endpoint key="paymentStatus"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
 </api>

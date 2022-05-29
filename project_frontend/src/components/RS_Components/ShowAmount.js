@@ -50,8 +50,8 @@ export default class ShowAmount extends Component {
       <div>
              
              <section className="vh-200" style={{backgroundColor: "#D8BFD8"}}>
-               <div className="container py-5 h-">
-                 <div className="row d-flex justify-content-center align-items-center h-100">
+               <div className="container py-5 h-100">
+                 <div className="row d-flex justify-content-center align-items-center h-50">
                    <div className="col col-xl-10">
                      <div className="card" style={{borderRadius: "1rem", marginBottom:"1rem"}}>
                        <div className="row g-0">
@@ -103,16 +103,9 @@ export default class ShowAmount extends Component {
 
              
                                       <div >
-                               <a href={`/payment/${_id}`}><button type="button" style={{width:"15rem"}} class="btn btn-success">Pay Now</button> </a>
+                                      <a href='/show'> <button type="button"  class="btn btn-secondary" style={{width:"8rem"}}>Back</button> </a> &nbsp;&nbsp; <a href={`/payment/${_id}`}><button type="button" style={{width:"8rem"}} class="btn btn-success">Pay Now</button> </a>
                                       </div>
                                       <br/>
-                                      <a href='/show'>
-                                      <button type="button" class="btn btn-info">Back</button>
-                                      </a>
-             
-                
-                              
-             
                              </form>
              
                            </div>

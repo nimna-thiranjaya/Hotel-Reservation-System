@@ -4,6 +4,7 @@ import './payment.css'
 import visa from '../../../asserts/NT_Asserts/visa.png'
 import master from '../../../asserts/NT_Asserts/master.png'
 import amx from '../../../asserts/NT_Asserts/amx.png'
+import Header from '../../Layouts/Header';
 export default class Payment extends Component {
   constructor(props){
     super(props);
@@ -100,9 +101,16 @@ onSubmit=(e)=>{
       })
       console.log("paymet success")
       this.sendmail();
+      this.setupstatus();
     }
   }).catch((error)=>{
     console.log(error)
+  })
+}
+setupstatus(){
+  const id = this.props.match.params.id;
+  axios.post(`http://localhost:8000/paymentdetails/payment/${id}`).then((res)=>{
+    console.log("paymet success")
   })
 }
 sendmail(){
@@ -117,13 +125,16 @@ sendmail(){
 
   axios.post("http://localhost:8280/email/sendMail",emaildata).then((res)=>{
     if(res.status){
-      alert("email send successful")
+      alert("Payment Successfull")
+      window.location.href="/show"
     }
   })
 }
  
   render() {
     return (
+      <div >
+      <Header/>
       <div class="container content">
         <div class="row">
             <div class="col-xs-12 col-md-4 offset-md-4">
@@ -192,6 +203,7 @@ sendmail(){
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     )

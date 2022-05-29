@@ -15,4 +15,25 @@ router.route("/paymetdetails/:id").get((req,res)=>{
     });
 })
 
+router.post("/payment/:id",async (req,res) =>{
+
+try{
+    let id = req.params.id;
+    const payment = await booking.findById(id);
+
+    const status = "Paid"
+    
+        payment.PaymentStatus = status;
+        payment.save();
+    
+    res.status(200).send({status:"Payment Success"});
+}catch(err){
+    console.log(err.messege);
+    res.status(500).send({error:err.messege});
+}
+
+
+})
+
+
 module.exports = router;

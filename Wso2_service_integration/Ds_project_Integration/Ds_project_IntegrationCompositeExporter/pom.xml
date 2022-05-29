@@ -23,6 +23,7 @@
     <com.example.endpoint_._getProfile>capp/EnterpriseServiceBus</com.example.endpoint_._getProfile>
     <com.example.endpoint_._getReservation>capp/EnterpriseServiceBus</com.example.endpoint_._getReservation>
     <com.example.endpoint_._deleteHotelRoom>capp/EnterpriseServiceBus</com.example.endpoint_._deleteHotelRoom>
+    <com.example.endpoint_._paymentStatus>capp/EnterpriseServiceBus</com.example.endpoint_._paymentStatus>
     <com.example.endpoint_._travelerLogin>capp/EnterpriseServiceBus</com.example.endpoint_._travelerLogin>
     <com.example.endpoint_._getHotelRoom>capp/EnterpriseServiceBus</com.example.endpoint_._getHotelRoom>
     <com.example.endpoint_._getHotelRooms>capp/EnterpriseServiceBus</com.example.endpoint_._getHotelRooms>
@@ -233,6 +234,12 @@
     <dependency>
       <groupId>com.example.endpoint</groupId>
       <artifactId>uploadImages</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>paymentStatus</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
