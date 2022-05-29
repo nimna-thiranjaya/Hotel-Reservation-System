@@ -119,9 +119,6 @@ router.route('/displayhotel').get((req,res) =>{
     try {
       const reservations = await reservation.find({tvId:req.traveler1._id, PaymentStatus:"pending"})
     
-
-
- 
      
       res
         .status(201)
