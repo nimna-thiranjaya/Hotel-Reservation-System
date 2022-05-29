@@ -5,6 +5,7 @@ import visa from '../../../asserts/NT_Asserts/visa.png'
 import master from '../../../asserts/NT_Asserts/master.png'
 import amx from '../../../asserts/NT_Asserts/amx.png'
 import Header from '../../Layouts/Header';
+import {toast} from 'react-toastify';
 export default class Payment extends Component {
   constructor(props){
     super(props);
@@ -104,6 +105,7 @@ onSubmit=(e)=>{
       this.setupstatus();
     }
   }).catch((error)=>{
+    toast.error('Select Card Type',{position:toast.POSITION.TOP_Right});
     console.log(error)
   })
 }
@@ -125,8 +127,11 @@ sendmail(){
 
   axios.post("http://localhost:8280/email/sendMail",emaildata).then((res)=>{
     if(res.status){
-      alert("Payment Successfull")
-      window.location.href="/show"
+      toast.success('Payment Success',{position:toast.POSITION.TOP_Right});
+      toast.success('Reservation details have been sent to your email..!',{position:toast.POSITION.TOP_Right});
+      window.setTimeout(function() {
+        window.location.href="/show"
+      }, 3000)
     }
   })
 }

@@ -42,8 +42,10 @@ function TravelerRegister(){
         if(password === cpassword){
             axios.post("http://localhost:8280/traveler/regTraveler",traveler).then((res)=>{
                 if(res.data){
-                    alert("Traveler register successful")
-                    window.location.href = '/';
+                    toast.success('Traveler register successful',{position:toast.POSITION.TOP_Right});
+                    window.setTimeout(function() {
+                        window.location.href = '/';
+                    }, 3000)   
                 }
             
             }).catch((e)=>{

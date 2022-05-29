@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Header from '../Layouts/Header';
-
+import {toast} from 'react-toastify';
 
 
 export default class ShowReservation extends Component {
@@ -46,7 +46,7 @@ export default class ShowReservation extends Component {
 onDelete = (id) => {
     if (window.confirm('Are you sure you wish to remove this reservation?')) {
     axios.delete(`http://localhost:8280/reservation/deleteResevation/${id}`).then((res) =>{
-        alert("Deleted Successfully");
+      toast.error('Your Reservation Removed',{position:toast.POSITION.TOP_Right});
         this.getReservationDetails();
     })
 }
@@ -63,8 +63,8 @@ onDelete = (id) => {
 <div className="pt-0" align="center" background color="red">
             <div className="shadow col-md-11 mt-8 mx-auto" >
               
-              <div className="card-header py-3">
-              <h1 className="m-0 font-weight-bold text-dark" id="rs"> My Reservations </h1><br/>
+              <div className="card-header py-3 mt-8">
+              <h4 className="m-0 font-weight-bold text-dark" id="rs"> My Reservations </h4><br/>
   
     </div>
 

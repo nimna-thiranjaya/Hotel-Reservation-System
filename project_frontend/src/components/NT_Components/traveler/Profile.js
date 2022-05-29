@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import Header from '../../Layouts/Header'
+import {toast} from 'react-toastify';
 
 export default class Profile extends Component {
     constructor(props){
@@ -57,7 +58,11 @@ export default class Profile extends Component {
         if (window.confirm('Are you sure you wish to logout from this Account?')) {
             localStorage.removeItem('Authorization')
             console.log("log out complete")
-            window.location = "/"
+            toast.success('LogOut Success',{position:toast.POSITION.TOP_Right});
+            window.setTimeout(function() {
+              window.location = "/"
+            }, 3000)  
+            
         }
     }
 

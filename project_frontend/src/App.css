@@ -220,6 +220,16 @@ input:not(:placeholder-shown):invalid{
 
 }
 
+.Toastify__toast--success {
+  top: 80px;
+  border: 1px solid #3fa53a !important;
+  border-radius: 5px !important;
+  background: #F0F9FA !important;
+}
 
-
-
+.Toastify__toast--error {
+  top: 80px;
+  border: 1px solid #EB5757;
+  border-radius: 5px !important;
+  background: #FAE1E2 !important;
+}

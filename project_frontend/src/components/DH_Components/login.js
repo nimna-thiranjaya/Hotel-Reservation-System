@@ -34,7 +34,6 @@ export default class Login extends Component {
 
           localStorage.setItem("Authorization", res.data.token)
           window.location = "/profileD"
-          alert('loging successfull');
         })
         .catch((err) => {
           console.log(err)

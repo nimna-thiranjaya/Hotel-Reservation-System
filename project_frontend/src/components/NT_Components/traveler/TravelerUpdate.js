@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import image from "../../../asserts/NT_Asserts/ss.jpg"
+import {toast} from 'react-toastify';
+
 
 export default class TravelerUpdate extends Component {
     constructor(props){
@@ -122,8 +124,10 @@ export default class TravelerUpdate extends Component {
                     country : "",
                     imageUrl : ""
                 })
-                alert("update success")
-                window.location.href="/profile"
+                toast.success('update success',{position:toast.POSITION.TOP_Right});
+                window.setTimeout(function() {
+                    window.location.href="/profile"
+                }, 3000)    
            }
         }).catch((e)=>{
             console.log(e)

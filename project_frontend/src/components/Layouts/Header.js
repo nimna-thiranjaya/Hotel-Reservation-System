@@ -6,6 +6,7 @@ import Fade from '@mui/material/Fade';
 import axios from 'axios';
 import { useState, useEffect } from 'react'
 import { FaAlignLeft } from 'react-icons/fa';
+import Logo from "../../asserts/Logo.png"
  function Header() {
     const [imageUrl, setimageUrl] = useState("")
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -59,8 +60,7 @@ import { FaAlignLeft } from 'react-icons/fa';
       <div>
         <nav className="navbar navbar-dark" style={{"background-color":"#060b26"}}>
             <div class="container-fluid">
-                <h2 style={{color:"#FFFFFF" }}>DNR Reservations</h2>
-                <br/>
+               <img src={Logo} style={{height:75+"px"}}/>
                 <br/> 
                 <Button
             id="fade-button"
